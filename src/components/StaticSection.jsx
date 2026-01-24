@@ -1,47 +1,46 @@
 import React from 'react';
 
-const Hero = () => {
-  return (
-    <div className="hero">
-      <div className="hero-overlay"></div>
-      <div className="hero-content container">
-        <span className="hero-subtitle uppercase">Exclusive Listing</span>
-        <h1 className="hero-title">1234 Lobello Drive</h1>
-        <p className="hero-location">Dallas, TX 75225</p>
-      </div>
+const StaticSection = ({ image, title, subtitle }) => {
+    return (
+        <section className="static-section">
+            <div className="static-overlay"></div>
+            <div className="static-content container">
+                {subtitle && <span className="static-subtitle uppercase">{subtitle}</span>}
+                {title && <h2 className="static-title">{title}</h2>}
+            </div>
 
-      <style>{`
-        .hero {
+            <style>{`
+        .static-section {
           position: relative;
           height: 100vh;
           width: 100%;
-          background-image: url('/exterior.png');
+          background-image: url('${image}');
           background-size: cover;
           background-position: center;
           background-attachment: fixed;
           display: flex;
           align-items: center;
           color: white;
+          z-index: 5;
         }
         
-        .hero-overlay {
+        .static-overlay {
           position: absolute;
           top: 0;
           left: 0;
           width: 100%;
           height: 100%;
-          background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.5) 100%);
+          background: rgba(0,0,0,0.3);
           z-index: 1;
         }
         
-        .hero-content {
+        .static-content {
           position: relative;
           z-index: 2;
           width: 100%;
-          padding-bottom: var(--spacing-xl);
         }
         
-        .hero-subtitle {
+        .static-subtitle {
           font-size: 0.9rem;
           letter-spacing: 0.2rem;
           display: block;
@@ -49,21 +48,15 @@ const Hero = () => {
           color: var(--color-accent);
         }
         
-        .hero-title {
-          font-size: clamp(3rem, 6vw, 6rem);
+        .static-title {
+          font-size: clamp(2.5rem, 5vw, 4rem);
           margin-bottom: var(--spacing-xs);
           font-family: var(--font-heading);
           text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
-        
-        .hero-location {
-          font-size: 1.5rem;
-          opacity: 0.9;
-          font-weight: 300;
-        }
       `}</style>
-    </div>
-  );
+        </section>
+    );
 };
 
-export default Hero;
+export default StaticSection;

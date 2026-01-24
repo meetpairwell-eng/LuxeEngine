@@ -1,13 +1,18 @@
-import React from 'react';
 import Hero from '../components/Hero';
 import Details from '../components/Details';
 import Gallery from '../components/Gallery';
+import StaticSection from '../components/StaticSection';
 
 const Home = () => {
     return (
         <main>
             <Hero />
             <Details />
+            <StaticSection
+                image="/interior.png"
+                title="Unparalleled Elegance"
+                subtitle="Interior Gallery"
+            />
             <Gallery />
 
             {/* Simple Footer for now */}
