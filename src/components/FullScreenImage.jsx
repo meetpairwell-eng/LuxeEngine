@@ -1,51 +1,75 @@
 import React from 'react';
 
-const FullScreenImage = ({ image, children }) => {
+const FullScreenImage = ({ image, children, sticky = false }) => {
   return (
-    <section className="fullscreen-image-section">
+    <section className={`fullscreen-image-section ${sticky ? 'sticky-mode' : ''}`}>
+      {/* Sticky Background Image */}
       <div className="fullscreen-bg" style={{ backgroundImage: `url('${image}')` }}></div>
       <div className="fullscreen-overlay"></div>
 
-      <div className="fullscreen-content container">
+      {/* Content anchored to the bottom of the section */}
+      <div className="fullscreen-content">
         {children}
       </div>
 
       <style>{`
         .fullscreen-image-section {
           position: relative;
-          height: 100vh;
           width: 100%;
-          overflow: hidden;
           z-index: 5;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          height: 100vh; /* Default */
+        }
+
+        .fullscreen-image-section.sticky-mode {
+             height: 200vh; /* Scroll track */
         }
 
         .fullscreen-bg {
           position: absolute;
-          top: 0;
-          left: 0;
+          top: 0; left: 0;
           width: 100%;
-          height: 100%;
+          height: 100%; /* Default */
           background-size: cover;
           background-position: center;
-          background-attachment: fixed; /* Parallax effect */
+          background-repeat: no-repeat;
+          z-index: 0;
+        }
+
+        /* In sticky mode, BG becomes sticky */
+        .fullscreen-image-section.sticky-mode .fullscreen-bg {
+            position: sticky;
+            top: 0;
+            height: 100vh; /* One viewport height */
         }
         
         .fullscreen-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.3); /* Darken for text readability */
             z-index: 1;
+            background: transparent;
+            pointer-events: none;
+        }
+        
+        /* In sticky mode, overlay must also be sticky to cover the image */
+        .fullscreen-image-section.sticky-mode .fullscreen-overlay {
+            position: sticky;
+            top: 0;
+            height: 100vh;
         }
         
         .fullscreen-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            color: white;
+            position: absolute;
+            bottom: 0; left: 0;
             width: 100%;
+            z-index: 10;
+        }
+        
+        /* Default content positioning if NOT sticky (just 100vh) */
+        .fullscreen-image-section:not(.sticky-mode) .fullscreen-content {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
         }
       `}</style>
     </section>

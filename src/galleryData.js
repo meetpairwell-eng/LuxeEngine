@@ -29,19 +29,30 @@ export const galleryConfig = {
     lifestyleImage: getUrl("5610Lobello-11.webp"),
 
     // --- 3. GALLERY LIST ---
-    // Just list your filenames below. The code will handle the R2 link for you.
+    // Option A: Manual List (Ignored if useBulk is true)
     manualImages: [
         "5610Lobello-5.webp",
         "5610Lobello-2.webp",
         "5610Lobello-3.webp",
         "5610Lobello-4.webp",
         "5610Lobello-5.webp",
+    ].map(getUrl),
 
-        // Add more images here:
-        // "5610Lobello-6.webp",
-    ].map(getUrl), // This magical line converts them all to full URLs
+    // Option B: Bulk Auto-Load (Easiest for many images)
+    // This will generate links for 5610Lobello-1.webp through 5610Lobello-38.webp
+    useBulk: true,
+    bulkSettings: {
+        baseUrl: `${R2_BASE_URL}/${FOLDER_NAME}`,
+        filePrefix: "5610Lobello-",
+        extension: ".webp",
+        count: 38,
+        excludeIndices: [37] // Exclude the bird's eye view from the main gallery
+    },
 
-    // (Ignore this, used for fallback logic)
-    useBulk: false,
-    bulkSettings: {}
+    // --- 4. FLOOR PLANS SECTION ---
+    floorPlanConfig: {
+        background: getUrl("5610Lobello-37.webp"),
+        floor1: getUrl("5610LobelloFP.pdf"),
+        floor2: getUrl("5610LobelloFP.pdf")
+    }
 };

@@ -39,6 +39,7 @@ const StaticSection = ({ image, title, subtitle }) => {
           position: relative;
           z-index: 2;
           width: 100%;
+          text-align: center;
         }
         
         .static-subtitle {

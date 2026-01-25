@@ -27,13 +27,10 @@ const Hero = () => {
   // Opacity: Initial image fades out as we scroll
   const fadeOpacity = 1 - progress;
 
-  // Text Animation Calculations
-  // Start (0): Center (50%, 50%), Scale 1.3
-  // End (1): Bottom-Left (5%, 85%), Scale 1.0
-  const leftPos = 50 - (45 * progress); // 50% -> 5%
-  const topPos = 50 + (35 * progress);  // 50% -> 85%
-  const translateVal = 50 - (50 * progress); // 50% -> 0% (Center pivot -> TopLeft pivot effectively)
-  const scaleVal = 1.3 - (0.3 * progress);   // 1.3 -> 1.0
+  // Text Animation - Fade Out Only
+  // Starts visible, fades out as we scroll down
+  const textOpacity = 1 - (progress * 1.5); // Stays visible longer (fades out at ~66%)
+  const scaleVal = 1.3 - (0.3 * progress);
 
   return (
     <div className="hero-track">
@@ -54,19 +51,28 @@ const Hero = () => {
 
         <div className="hero-overlay"></div>
 
-        {/* Floating Content Layer */}
+        {/* Floating Content Layer - Fixed Position, Fades Out */}
         <div
           className="hero-content-animator"
           style={{
-            left: `${leftPos}%`,
-            top: `${topPos}%`,
-            transform: `translate(-${translateVal}%, -${translateVal}%) scale(${scaleVal})`,
-            textAlign: progress > 0.8 ? 'left' : 'center',
-            width: 'max-content'
+            left: '50%',
+            top: '35%', // Fixed high position
+            transform: `translate(-50%, -50%) scale(${scaleVal})`,
+            textAlign: 'center',
+            width: 'max-content',
+            opacity: textOpacity,
+            pointerEvents: textOpacity <= 0 ? 'none' : 'auto'
           }}
         >
           <h1 className="hero-title">5610 Lobello Drive</h1>
         </div>
+
+        {/* Scroll Hint Tab */}
+        <div className="hero-scroll-tab">
+          <span className="scroll-text">SCROLL</span>
+          <div className="scroll-arrow"></div>
+        </div>
+
       </div>
 
       <style>{`
@@ -83,11 +89,9 @@ const Hero = () => {
           height: 100vh;
           width: 100%;
           overflow: hidden;
-          /* We'll use absolute positioning for content now, so flex alignment is not needed */
           color: white;
         }
 
-        /* ... existing layer styles ... */
         .hero-bg-layer {
           position: absolute;
           top: 0;
@@ -110,36 +114,58 @@ const Hero = () => {
           z-index: 3;
         }
 
-        /* Animated Content Container */
         .hero-content-animator {
           position: absolute;
           z-index: 5;
-          width: max-content; /* Shrink warp to text */
-          max-width: 90%;     /* Prevent overflow */
-          will-change: transform, left, top;
-          transition: text-align 0.3s; /* Smooth align switch */
-        }
-        
-        .hero-subtitle {
-          font-size: 0.9rem;
-          letter-spacing: 0.2rem;
-          display: block;
-          margin-bottom: var(--spacing-sm);
-          color: var(--color-accent);
+          width: max-content;
+          max-width: 90%;
+          will-change: transform, opacity;
+          transition: opacity 0.1s;
         }
         
         .hero-title {
-          font-size: clamp(2.5rem, 5vw, 5rem); /* Slightly smaller max */
+          font-size: clamp(2.5rem, 5vw, 5rem);
           margin-bottom: var(--spacing-xs);
           font-family: var(--font-heading);
-          text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+          text-shadow: 0 2px 10px rgba(0,0,0,0.5);
           line-height: 1;
         }
+
+        /* Scroll Tab Styling */
+        .hero-scroll-tab {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 2rem;
+            animation: bounce 2s infinite;
+        }
         
-        .hero-location {
-          font-size: 1.5rem;
-          opacity: 0.9;
-          font-weight: 300;
+        .scroll-text {
+            font-size: 0.8rem;
+            letter-spacing: 0.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .scroll-arrow {
+            width: 20px;
+            height: 20px;
+            border-bottom: 2px solid white;
+            border-right: 2px solid white;
+            transform: rotate(45deg);
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
         }
       `}</style>
     </div>
