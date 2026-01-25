@@ -5,6 +5,7 @@ import FullScreenImage from '../components/FullScreenImage';
 import StaticSection from '../components/StaticSection';
 import FadeIn from '../components/FadeIn';
 import FloorPlans from '../components/FloorPlans';
+import Footer from '../components/Footer';
 import { galleryConfig } from '../galleryData';
 
 const Home = () => {
@@ -147,27 +148,9 @@ const Home = () => {
                 `}</style>
             </FullScreenImage>
             <Details />
-            <StaticSection
-                image={galleryConfig.staticImage}
-                title="GALLERY"
-            />
             <Gallery />
             <FloorPlans />
-
-            {/* Simple Footer for now */}
-            <footer style={{
-                padding: 'var(--spacing-lg) 0',
-                textAlign: 'center',
-                borderTop: '1px solid var(--color-border)',
-                marginTop: 0, // Removed margin since FloorPlans is full screen
-                color: 'var(--color-text-light)',
-                background: '#111', // Match floorplans bg
-                borderTop: '1px solid #333'
-            }}>
-                <div className="container">
-                    <p>&copy; {new Date().getFullYear()} Lobello Drive. All Rights Reserved.</p>
-                </div>
-            </footer>
+            <Footer />
         </main>
     );
 };

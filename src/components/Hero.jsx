@@ -124,11 +124,13 @@ const Hero = () => {
         }
         
         .hero-title {
-          font-size: clamp(2.5rem, 5vw, 5rem);
+          font-size: clamp(1.5rem, 3vw, 2.5rem);
           margin-bottom: var(--spacing-xs);
           font-family: var(--font-heading);
           text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-          line-height: 1;
+          line-height: 1.2;
+          text-transform: uppercase;
+          letter-spacing: 0.2em;
         }
 
         /* Scroll Tab Styling */
