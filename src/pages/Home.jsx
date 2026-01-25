@@ -109,7 +109,7 @@ const Home = () => {
                     /* Scroll Indicator Styles */
                     .fs-scroll-indicator {
                         position: absolute;
-                        bottom: 15%; /* Positioned relative to sticky viewport */
+                        bottom: 40%; /* Moved UP significantly to avoid being covered by the banner */
                         left: 50%;
                         transform: translateX(-50%);
                         z-index: 20;
@@ -120,7 +120,8 @@ const Home = () => {
                         color: white;
                         pointer-events: none;
                         opacity: 0; /* Hidden by default */
-                        transition: opacity 0.5s ease;
+                        transition: opacity 1s ease; /* Slower fade in */
+                        mix-blend-mode: difference; /* Optional: helps visibility on light/dark images */
                     }
 
                     .fs-scroll-indicator.visible {
@@ -130,9 +131,9 @@ const Home = () => {
                     .scroll-text {
                         font-size: 0.8rem;
                         letter-spacing: 0.2rem;
-                        font-weight: 300;
+                        font-weight: 500; /* Bolder */
                         text-transform: uppercase;
-                        text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+                        text-shadow: 0 2px 4px rgba(0,0,0,0.8); /* Stronger shadow */
                         margin-bottom: 5px;
                     }
 
@@ -142,7 +143,7 @@ const Home = () => {
                         border-bottom: 2px solid white;
                         border-right: 2px solid white;
                         transform: rotate(45deg);
-                        filter: drop-shadow(0 2px 2px rgba(0,0,0,0.5));
+                        filter: drop-shadow(0 2px 2px rgba(0,0,0,0.8));
                     }
                     
                     @keyframes bounce {
