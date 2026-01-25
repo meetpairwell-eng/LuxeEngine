@@ -15,6 +15,12 @@ const Home = () => {
             <SEO />
             <Hero />
             <FullScreenImage image={galleryConfig.lifestyleImage} sticky={true}>
+                {/* Scroll Indicator for Lifestyle Section */}
+                <div className="fs-scroll-indicator">
+                    <span className="scroll-text">SCROLL</span>
+                    <div className="scroll-arrow"></div>
+                </div>
+
                 <div className="fs-text-banner">
                     <div className="container">
                         <div className="fs-content-layout">
@@ -56,6 +62,47 @@ const Home = () => {
                         color: #111;
                         border-top: 1px solid rgba(0,0,0,0.05);
                         box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
+                        position: relative;
+                        z-index: 25;
+                    }
+                    
+                    /* Scroll Indicator Styles */
+                    .fs-scroll-indicator {
+                        position: absolute;
+                        bottom: 120px; /* Positioned above the banner area */
+                        left: 50%;
+                        transform: translateX(-50%);
+                        z-index: 20;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        animation: bounce 2s infinite;
+                        color: white;
+                        pointer-events: none;
+                    }
+                    
+                    .scroll-text {
+                        font-size: 0.8rem;
+                        letter-spacing: 0.2rem;
+                        font-weight: 300;
+                        text-transform: uppercase;
+                        text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+                        margin-bottom: 5px;
+                    }
+
+                    .scroll-arrow {
+                        width: 20px;
+                        height: 20px;
+                        border-bottom: 2px solid white;
+                        border-right: 2px solid white;
+                        transform: rotate(45deg);
+                        filter: drop-shadow(0 2px 2px rgba(0,0,0,0.5));
+                    }
+                    
+                    @keyframes bounce {
+                        0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+                        40% { transform: translateX(-50%) translateY(-10px); }
+                        60% { transform: translateX(-50%) translateY(-5px); }
                     }
 
                     .fs-content-layout {
@@ -69,7 +116,8 @@ const Home = () => {
                         color: #111;
                         padding: 0 1rem;
                     }
-
+                    
+                    /* ... rest of existing styles ... */
                     /* Left Column Styles */
                     .fs-left-col {
                         text-align: left;
