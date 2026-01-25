@@ -1,16 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Outfit:wght@200;300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Outfit:wght@200;300;400;500&display=swap');
 
 :root {
   /* Colors */
-  --color-bg: #FCFCFC;     /* Off-white background */
-  --color-text: #1A1A1A;   /* Near black text */
+  --color-bg: #FCFCFC;
+  /* Off-white background */
+  --color-text: #1A1A1A;
+  /* Near black text */
   --color-text-light: #666666;
-  --color-accent: #C7A17A; /* Muted Gold */
+  --color-accent: #C7A17A;
+  /* Muted Gold */
   --color-border: #E5E5E5;
   --color-overlay: rgba(0, 0, 0, 0.4);
 
   /* Typography */
-  --font-heading: 'Antonio', sans-serif;
+  --font-heading: 'Marcellus', serif;
   --font-body: 'Outfit', sans-serif;
 
   /* Spacing */
@@ -25,11 +28,14 @@
   --transition-medium: 0.4s ease;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   font-family: var(--font-body);
@@ -40,13 +46,19 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
-  font-weight: 300; /* Lighter weight looks more premium with this font */
+  font-weight: 400;
+  /* Regular weight for Marcellus */
   margin: 0 0 var(--spacing-sm) 0;
-  line-height: 1.1;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  /* Slightly tighter than the all-caps look */
 }
 
 p {

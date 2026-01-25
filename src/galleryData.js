@@ -13,11 +13,20 @@ const getUrl = (filename) => `${R2_BASE_URL}/${FOLDER_NAME}/${filename}`;
 export const galleryConfig = {
 
     // --- 2. SINGLE IMAGES (For Hero & Static Sections) ---
-    // Just put the filename here!
+    // "coverImage" -> The FIRST image you see (before scrolling)
+    coverImage: getUrl("5610Lobello-34.webp"),
+
+    // "heroImage" -> The SECOND image (revealed after scrolling)
     heroImage: getUrl("5610Lobello-5.webp"),
-    staticImage: getUrl("5610Lobello-17.webp"),
-    // The image for the "About the Property" split section
-    detailsImage: getUrl("5610Lobello-12.webp"),
+    staticImage: getUrl("5610Lobello-4.webp"),
+    // --- DETAILED SECTIONS IMAGES ---
+    detailsLiving: getUrl("5610Lobello-10.webp"), // Kitchen/Living area
+    detailsBath: getUrl("5610Lobello-25.webp"),   // Primary Bath
+    detailsFinishes: getUrl("5610Lobello-17.webp"), // Interior/Hallway details
+    detailsOutdoor: getUrl("5610Lobello-30.webp"),   // Pool/Exterior
+
+    // New Fullscreen Section
+    lifestyleImage: getUrl("5610Lobello-11.webp"),
 
     // --- 3. GALLERY LIST ---
     // Just list your filenames below. The code will handle the R2 link for you.

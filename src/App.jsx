@@ -3,7 +3,7 @@ import Home from './pages/Home';
 import { galleryConfig } from './galleryData';
 
 function App() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true); // Open by default for scroll effect
   const [isInitialized, setIsInitialized] = useState(false);
 
   // Small delay to ensure smooth initial render
