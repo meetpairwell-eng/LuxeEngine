@@ -1,11 +1,18 @@
 import React from 'react';
 
-const FullScreenImage = ({ image, children, sticky = false }) => {
+const FullScreenImage = ({ image, children, sticky = false, stickyContent = null }) => {
   return (
     <section className={`fullscreen-image-section ${sticky ? 'sticky-mode' : ''}`}>
       {/* Sticky Background Image */}
       <div className="fullscreen-bg" style={{ backgroundImage: `url('${image}')` }}></div>
       <div className="fullscreen-overlay"></div>
+
+      {/* Sticky Content Layer (e.g. Scroll Hints) */}
+      {stickyContent && (
+        <div className="fullscreen-sticky-layer">
+          {stickyContent}
+        </div>
+      )}
 
       {/* Content anchored to the bottom of the section */}
       <div className="fullscreen-content">
@@ -52,6 +59,19 @@ const FullScreenImage = ({ image, children, sticky = false }) => {
         
         /* In sticky mode, overlay must also be sticky to cover the image */
         .fullscreen-image-section.sticky-mode .fullscreen-overlay {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+        }
+
+        .fullscreen-sticky-layer {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 4; /* Above overlay (1) and BG (0), below main content (10) */
+            pointer-events: none;
+        }
+
+        .fullscreen-image-section.sticky-mode .fullscreen-sticky-layer {
             position: sticky;
             top: 0;
             height: 100vh;

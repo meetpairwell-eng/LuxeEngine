@@ -1,3 +1,4 @@
+import { useRef, useEffect, useState } from 'react';
 import Hero from '../components/Hero';
 import Details from '../components/Details';
 import Gallery from '../components/Gallery';
@@ -9,17 +10,56 @@ import Footer from '../components/Footer';
 import SEO from '../components/SEO';
 import { galleryConfig } from '../galleryData';
 
+const LifestyleScrollHint = () => {
+    const [isVisible, setIsVisible] = useState(false);
+    const ref = useRef(null);
+
+    useEffect(() => {
+        // Observer to detect when this sticky layer is visible
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    // Start timer when entering view
+                    const timer = setTimeout(() => {
+                        setIsVisible(true);
+                    }, 1000); // 1 second delay
+                    return () => clearTimeout(timer);
+                } else {
+                    // Hide immediately when leaving
+                    setIsVisible(false);
+                }
+            },
+            { threshold: 0.1 } // Trigger as soon as 10% is visible
+        );
+
+        if (ref.current) {
+            observer.observe(ref.current);
+        }
+
+        return () => observer.disconnect();
+    }, []);
+
+    return (
+        <div
+            ref={ref}
+            className={`fs-scroll-indicator ${isVisible ? 'visible' : ''}`}
+        >
+            <span className="scroll-text">SCROLL</span>
+            <div className="scroll-arrow"></div>
+        </div>
+    );
+};
+
 const Home = () => {
     return (
         <main>
             <SEO />
             <Hero />
-            <FullScreenImage image={galleryConfig.lifestyleImage} sticky={true}>
-                {/* Scroll Indicator for Lifestyle Section */}
-                <div className="fs-scroll-indicator">
-                    <span className="scroll-text">SCROLL</span>
-                    <div className="scroll-arrow"></div>
-                </div>
+            <FullScreenImage
+                image={galleryConfig.lifestyleImage}
+                sticky={true}
+                stickyContent={<LifestyleScrollHint />}
+            >
 
                 <div className="fs-text-banner">
                     <div className="container">
@@ -69,7 +109,7 @@ const Home = () => {
                     /* Scroll Indicator Styles */
                     .fs-scroll-indicator {
                         position: absolute;
-                        bottom: 120px; /* Positioned above the banner area */
+                        bottom: 15%; /* Positioned relative to sticky viewport */
                         left: 50%;
                         transform: translateX(-50%);
                         z-index: 20;
@@ -79,6 +119,12 @@ const Home = () => {
                         animation: bounce 2s infinite;
                         color: white;
                         pointer-events: none;
+                        opacity: 0; /* Hidden by default */
+                        transition: opacity 0.5s ease;
+                    }
+
+                    .fs-scroll-indicator.visible {
+                        opacity: 1; 
                     }
                     
                     .scroll-text {
@@ -116,8 +162,7 @@ const Home = () => {
                         color: #111;
                         padding: 0 1rem;
                     }
-                    
-                    /* ... rest of existing styles ... */
+
                     /* Left Column Styles */
                     .fs-left-col {
                         text-align: left;
