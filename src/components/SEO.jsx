@@ -1,14 +1,14 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { galleryConfig } from '../galleryData';
+import { propertyInfo, agentInfo, images } from '../config/propertyConfig';
 
 // Constants
-const PROPERTY_TITLE = "5610 Lobello Drive | Elegant Georgian Estate in Dallas";
-const PROPERTY_DESC = "Discover 5610 Lobello Drive, a 7,890 sq ft luxury Georgian-inspired estate on a half-acre lot in Dallas. Featuring 5 beds, 6 baths, pool, and 4-car garage. Listed by Cole Swearingen.";
-const PROPERTY_URL = "https://www.5610lobellodrive.com"; // Assuming this is the canonical or we use window.location
-const PROPERTY_PRICE = "6650000";
+const PROPERTY_TITLE = `${propertyInfo.address} | ${propertyInfo.tagline}`;
+const PROPERTY_DESC = propertyInfo.metaDescription;
+const PROPERTY_URL = `https://www.${propertyInfo.address.toLowerCase().replace(/\s+/g, '')}.com`;
+const PROPERTY_PRICE = propertyInfo.price.replace(/[^0-9]/g, '');
 const PROPERTY_CURRENCY = "USD";
-const PROPERTY_IMAGE = "https://www.5610lobellodrive.com/images/lobello-1.jpg"; // We should map this to a real static asset
+const PROPERTY_IMAGE = images.hero;
 
 const SEO = () => {
     // Construct Structured Data (JSON-LD)
@@ -25,18 +25,18 @@ const SEO = () => {
         },
         "floorSize": {
             "@type": "QuantitativeValue",
-            "value": 7890,
+            "value": parseInt(propertyInfo.specs.sqft.replace(/,/g, '')),
             "unitCode": "FTK"
         },
-        "numberOfBedrooms": 5,
-        "numberOfBathroomsTotal": 6,
+        "numberOfBedrooms": propertyInfo.specs.beds,
+        "numberOfBathroomsTotal": propertyInfo.specs.baths,
         "yearBuilt": 2024, // Assuming new construction or recent, adjusting if needed
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "5610 Lobello Drive",
-            "addressLocality": "Dallas",
-            "addressRegion": "TX",
-            "postalCode": "75220", // Double check zip
+            "streetAddress": propertyInfo.address,
+            "addressLocality": propertyInfo.city,
+            "addressRegion": propertyInfo.state,
+            "postalCode": propertyInfo.zip,
             "addressCountry": "US"
         },
         "geo": {
@@ -75,13 +75,13 @@ const SEO = () => {
         ],
         "agent": {
             "@type": "Person",
-            "name": "Cole Swearingen",
+            "name": agentInfo.name,
             "jobTitle": "Real Estate Agent",
-            "telephone": "972-971-9586",
-            "email": "cole.swearingen@compass.com",
+            "telephone": agentInfo.phone,
+            "email": agentInfo.email,
             "worksFor": {
                 "@type": "RealEstateAgent",
-                "name": "Compass"
+                "name": agentInfo.brokerage
             }
         }
     };

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { agentInfo } from '../config/propertyConfig';
 const Footer = () => {
     return (
         <footer className="footer">
@@ -7,13 +7,13 @@ const Footer = () => {
                 <div className="footer-content">
                     <div className="footer-cta-container">
                         <span className="footer-cta-small">For more info contact</span>
-                        <h2 className="footer-cta-large">Cole Swearingen</h2>
+                        <h2 className="footer-cta-large">{agentInfo.name}</h2>
                     </div>
 
                     <div className="footer-contact-info">
-                        <a href="tel:9729719586" className="footer-link">972.971.9586</a>
-                        <a href="mailto:cole.swearingen@compass.com" className="footer-link">cole.swearingen@compass.com</a>
-                        <div className="footer-broker">COMPASS</div>
+                        <a href={`tel:${agentInfo.phone.replace(/\D/g, '')}`} className="footer-link">{agentInfo.phone}</a>
+                        <a href={`mailto:${agentInfo.email}`} className="footer-link">{agentInfo.email}</a>
+                        <div className="footer-broker">{agentInfo.brokerage}</div>
                     </div>
 
                     <div className="footer-divider"></div>

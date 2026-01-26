@@ -8,7 +8,7 @@ import FadeIn from '../components/FadeIn';
 import FloorPlans from '../components/FloorPlans';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
-import { galleryConfig } from '../galleryData';
+import { images, propertyInfo, agentInfo } from '../config/propertyConfig';
 
 const LifestyleScrollHint = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -56,7 +56,7 @@ const Home = () => {
             <SEO />
             <Hero />
             <FullScreenImage
-                image={galleryConfig.lifestyleImage}
+                image={images.lifestyle}
                 sticky={true}
                 stickyContent={<LifestyleScrollHint />}
             >
@@ -67,14 +67,14 @@ const Home = () => {
                             {/* Left Column: Title & Description */}
                             <FadeIn direction="up" distance="30px">
                                 <div className="fs-left-col">
-                                    <h2 className="fs-main-title">Elegant Georgian Inspired Estate Home</h2>
+                                    <h2 className="fs-main-title">{propertyInfo.tagline}</h2>
                                     <div className="fs-stats-list uppercase">
-                                        <span className="stat-line">7,890 SQ FT | Half-Acre Lot</span>
-                                        <span className="stat-line">5 Beds | 6 Baths | 2 Powder</span>
-                                        <span className="stat-line">Study | Game Room | Office | Den</span>
-                                        <span className="stat-line">Outdoor Terrace | Pool | 4-Car Garage</span>
+                                        <span className="stat-line">{propertyInfo.specs.sqft} SQ FT | {propertyInfo.specs.lotSize} Lot</span>
+                                        <span className="stat-line">{propertyInfo.specs.beds} Beds | {propertyInfo.specs.baths} Baths | {propertyInfo.specs.powder} Powder</span>
+                                        <span className="stat-line">{propertyInfo.features.join(' | ')}</span>
+                                        <span className="stat-line">Outdoor Terrace | Pool | {propertyInfo.specs.garage} Garage</span>
                                     </div>
-                                    <div className="fs-price">$6,650,000</div>
+                                    <div className="fs-price">{propertyInfo.price}</div>
                                 </div>
                             </FadeIn>
 
@@ -82,9 +82,9 @@ const Home = () => {
                             <FadeIn direction="up" distance="30px" delay={200}>
                                 <div className="fs-agent">
                                     <h4 className="fs-agent-title uppercase">Listed By</h4>
-                                    <p className="fs-agent-name">Cole Swearingen</p>
-                                    <p className="fs-agent-contact">972.971.9586</p>
-                                    <p className="fs-agent-email">cole.swearingen@compass.com</p>
+                                    <p className="fs-agent-name">{agentInfo.name}</p>
+                                    <p className="fs-agent-contact">{agentInfo.phone}</p>
+                                    <p className="fs-agent-email">{agentInfo.email}</p>
                                 </div>
                             </FadeIn>
                         </div>

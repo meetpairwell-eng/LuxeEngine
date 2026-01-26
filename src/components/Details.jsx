@@ -1,56 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { galleryConfig } from '../galleryData';
-
-const sections = [
-  {
-    title: "Living & Entertaining",
-    imageKey: "detailsLiving",
-    features: [
-      "Classically scaled rooms for formal and informal entertaining",
-      "Den, Lounge and Bar, Study, Game room, and Office",
-      "Custom paneled wall details at foyer, living room and lounge",
-      "Wood burning fireplaces at Living Room, Dining Room, and Primary Bedrooms",
-      "Gourmet Kitchen with Thermador Appliances",
-      "Butler’s Pantry with dishwasher, oven, coffee and wine refrigeration",
-      "Waterworks fixtures at kitchen and powder and bar"
-    ]
-  },
-  {
-    title: "Primary Suite & Baths",
-    imageKey: "detailsBath",
-    features: [
-      "Five Bedrooms, Six bathrooms, and two powder rooms",
-      "Gracious primary suite with coffee bar",
-      "Luxurious bath with marble clad floating tub",
-      "Customizable dressing room with additional laundry closet",
-      "Kallista and Kohler plumbing fixtures at bathrooms throughout",
-      "Two full laundry rooms: one downstairs; one upstairs"
-    ]
-  },
-  {
-    title: "Exquisite Finishes",
-    imageKey: "detailsFinishes",
-    features: [
-      "Marble, Limestone and Wide Plank wood flooring throughout",
-      "Hand troweled plaster finishes at dining room and study",
-      "Custom stained and painted cabinetry and millwork throughout",
-      "Designer selected chandeliers, pendants and sconces throughout",
-      "Marble, Limestone, and Quartzite slabs throughout kitchen and bathrooms"
-    ]
-  },
-  {
-    title: "Outdoor Living",
-    imageKey: "detailsOutdoor",
-    features: [
-      "Gracious indoor loggia leading to covered outdoor terrace",
-      "Davinci Slate Composite Roofing & Painted Brick/Stone exterior",
-      "Oversized Four Car garage with both street and alley access",
-      "Professionally landscaped grounds by Bloom and Grow",
-      "40 foot long pool and spa, and outdoor kitchen",
-      "Control 4 automated lighting, audio, and security system"
-    ]
-  }
-];
+import { images, detailSections } from '../config/propertyConfig';
 
 const Details = () => {
   const containerRef = useRef(null);
@@ -107,7 +56,7 @@ const Details = () => {
             RENDER ALL SECTIONS STACKED 
             We control opacity based on activeSection
         */}
-        {sections.map((section, index) => {
+        {detailSections.map((section, index) => {
           const isActive = index === activeSection;
           const isReverse = index % 2 !== 0;
 
@@ -134,7 +83,7 @@ const Details = () => {
 
                 {/* Image Side */}
                 <div className={`details-image-side ${isActive ? 'image-reveal' : ''}`}>
-                  <img src={galleryConfig[section.imageKey]} alt={section.title} />
+                  <img src={images[section.imageKey]} alt={section.title} />
                 </div>
               </div>
             </div>
@@ -146,7 +95,7 @@ const Details = () => {
 
       <style>{`
         .details-track {
-          height: ${sections.length * 100}vh; /* 100vh per section */
+          height: ${detailSections.length * 100}vh; /* 100vh per section */
           position: relative;
           z-index: 10;
         }

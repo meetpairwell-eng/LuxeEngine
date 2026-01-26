@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import FullGallery from './pages/FullGallery';
-import { galleryConfig } from './galleryData';
+import { propertyInfo } from './config/propertyConfig';
 
 function App() {
   const [isOpen, setIsOpen] = useState(true); // Open by default for scroll effect
@@ -45,7 +45,7 @@ function App() {
         <div className={`welcome-screen ${isOpen ? 'fade-out' : ''}`}>
           <div className="welcome-bg"></div>
           <div className="welcome-content">
-            <h2 className="welcome-address">1234 Lobello Drive</h2>
+            <h2 className="welcome-address">{propertyInfo.address}</h2>
             <button className="welcome-btn" onClick={handleOpen}>
               CLICK TO OPEN
             </button>

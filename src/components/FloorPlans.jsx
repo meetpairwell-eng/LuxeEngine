@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { galleryConfig } from '../galleryData';
+import { galleryConfig_LEGACY as galleryConfig } from '../config/propertyConfig';
 
 const FloorPlans = () => {
     const [showPlans, setShowPlans] = useState(false);

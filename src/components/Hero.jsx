@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import { galleryConfig } from '../galleryData';
+import { images, propertyInfo } from '../config/propertyConfig';
 
 const Hero = () => {
   const [scrollY, setScrollY] = useState(0);
 
   // The "Cover" layer (First Image)
-  const coverImage = galleryConfig.coverImage;
+  const coverImage = images.cover;
 
   // Track scroll for the fade effect
   useEffect(() => {
@@ -37,7 +37,7 @@ const Hero = () => {
       <div className="hero-sticky">
 
         {/* Layer 1: The "Reveal" Image (Main Hero) */}
-        <div className="hero-bg-layer" style={{ backgroundImage: `url('${galleryConfig.heroImage}')`, zIndex: 1 }}></div>
+        <div className="hero-bg-layer" style={{ backgroundImage: `url('${images.hero}')`, zIndex: 1 }}></div>
 
         {/* Layer 2: The "Initial" Image (Random Cover) - Fades Out */}
         <div
@@ -64,7 +64,7 @@ const Hero = () => {
             pointerEvents: textOpacity <= 0 ? 'none' : 'auto'
           }}
         >
-          <h1 className="hero-title">5610 Lobello Drive</h1>
+          <h1 className="hero-title">{propertyInfo.address}</h1>
         </div>
 
         {/* Scroll Hint Tab */}
