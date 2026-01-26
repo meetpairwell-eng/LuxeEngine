@@ -56,9 +56,9 @@ const Hero = () => {
           className="hero-content-animator"
           style={{
             left: '50%',
-            top: '35%', // Fixed high position
+            top: 'var(--hero-text-top)', // Configurable position
             transform: `translate(-50%, -50%) scale(${scaleVal})`,
-            textAlign: 'center',
+            textAlign: 'var(--hero-text-align)', // Configurable alignment
             width: 'max-content',
             opacity: textOpacity,
             pointerEvents: textOpacity <= 0 ? 'none' : 'auto'

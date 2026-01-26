@@ -29,10 +29,10 @@ const Footer = () => {
 
             <style>{`
                 .footer {
-                    background-color: #ffffff;
-                    color: #111;
+                    background-color: var(--color-bg);
+                    color: var(--color-text);
                     padding: 3rem 0 2rem 0; /* More compact */
-                    border-top: 1px solid #eaeaea;
+                    border-top: 1px solid var(--color-border);
                 }
 
                 .footer-content {
@@ -54,7 +54,7 @@ const Footer = () => {
                     font-size: 0.8rem;
                     text-transform: uppercase;
                     letter-spacing: 0.2em;
-                    color: #666;
+                    color: var(--color-text-light);
                 }
 
                 .footer-cta-large {
@@ -62,7 +62,7 @@ const Footer = () => {
                     font-size: clamp(1.2rem, 2vw, 1.6rem);
                     text-transform: uppercase;
                     letter-spacing: 0.1em;
-                    color: #000;
+                    color: var(--color-text);
                     margin: 0;
                     line-height: 1.2;
                     font-weight: 400;
@@ -77,7 +77,7 @@ const Footer = () => {
                 }
 
                 .footer-link {
-                    color: #333;
+                    color: var(--color-text-light);
                     text-decoration: none;
                     font-size: 0.95rem; /* Smaller links */
                     transition: color 0.3s ease;
@@ -86,7 +86,7 @@ const Footer = () => {
                 }
 
                 .footer-link:hover {
-                    color: #000;
+                    color: var(--color-accent);
                 }
 
                 .footer-broker {
@@ -94,13 +94,13 @@ const Footer = () => {
                     font-size: 0.8rem; /* Smaller broker text */
                     letter-spacing: 0.3em;
                     font-weight: 600;
-                    color: #000;
+                    color: var(--color-text);
                 }
 
                 .footer-divider {
                     width: 100%;
                     height: 1px;
-                    background: rgba(0, 0, 0, 0.08);
+                    background: var(--color-border);
                     margin-bottom: 1.5rem;
                 }
 

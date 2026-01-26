@@ -29,7 +29,7 @@ const Details = () => {
       } else {
         let index = Math.floor(offset / viewportHeight);
         if (index < 0) index = 0;
-        if (index >= sections.length) index = sections.length - 1;
+        if (index >= detailSections.length) index = detailSections.length - 1;
         setActiveSection(index);
       }
     };
@@ -106,7 +106,7 @@ const Details = () => {
           height: 100vh;
           width: 100%;
           overflow: hidden;
-          background: white;
+          background: var(--color-bg);
         }
 
         .section-title {
@@ -159,7 +159,7 @@ const Details = () => {
           align-items: center;
           justify-content: center;
           padding: var(--spacing-xl) var(--spacing-lg);
-          background: white;
+          background: var(--color-bg);
         }
 
         .details-text-container {
@@ -229,7 +229,7 @@ const Details = () => {
             width: 90%;
             max-width: 1000px;
             z-index: 30;
-            background: white;
+            background: var(--color-bg);
             border: 1px solid var(--color-border);
             animation: floatUp 0.5s ease forwards;
         }

@@ -8,7 +8,7 @@ import FadeIn from '../components/FadeIn';
 import FloorPlans from '../components/FloorPlans';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
-import { images, propertyInfo, agentInfo } from '../config/propertyConfig';
+import { images, propertyInfo, agentInfo, layout } from '../config/propertyConfig';
 
 const LifestyleScrollHint = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -51,6 +51,11 @@ const LifestyleScrollHint = () => {
 };
 
 const Home = () => {
+    // Default layout settings if not provided
+    const showGallery = layout?.showGallery ?? true;
+    const showFloorPlans = layout?.showFloorPlans ?? true;
+    const showDetails = layout?.showDetails ?? true;
+
     return (
         <main>
             <SEO />
@@ -96,11 +101,12 @@ const Home = () => {
 
                     .fs-text-banner {
                         width: 100%;
-                        background: rgba(253, 248, 240, 0.7); /* Creamier, 70% opacity */
+                        background: var(--color-bg); 
+                        opacity: 0.85; /* Slight transparency for the banner */
                         backdrop-filter: blur(10px);
                         padding: 1.5rem 0; 
-                        color: #111;
-                        border-top: 1px solid rgba(0,0,0,0.05);
+                        color: var(--color-text);
+                        border-top: 1px solid var(--color-border);
                         box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
                         position: relative;
                         z-index: 25;
@@ -160,7 +166,7 @@ const Home = () => {
                         width: 100%;
                         max-width: 900px; /* Not so at the edge */
                         margin: 0 auto;
-                        color: #111;
+                        color: var(--color-text);
                         padding: 0 1rem;
                     }
 
@@ -175,7 +181,7 @@ const Home = () => {
                         letter-spacing: 0.05rem; /* Reduced tracking */
                         text-transform: uppercase;
                         line-height: 1.1;
-                        color: #000;
+                        color: var(--color-text);
                         white-space: nowrap; /* Force single line */
                     }
                     .fs-stats-list {
@@ -183,7 +189,7 @@ const Home = () => {
                         letter-spacing: 0.1rem;
                         line-height: 1.4; /* Tighter spacing */
                         font-weight: 300;
-                        color: #333;
+                        color: var(--color-text-light);
                     }
                     .stat-line { display: block; }
                     .fs-price {
@@ -191,7 +197,7 @@ const Home = () => {
                         letter-spacing: 0.1rem;
                         margin-top: 1rem;
                         font-weight: 500;
-                        color: #000;
+                        color: var(--color-text);
                     }
 
                     /* Right Column Styles */
@@ -205,14 +211,14 @@ const Home = () => {
                         font-size: 0.75rem; /* Smaller label */
                         letter-spacing: 0.2em;
                         margin-bottom: 1rem;
-                        color: #666;
+                        color: var(--color-text-light);
                     }
                     .fs-agent-name {
                         font-size: clamp(1.4rem, 2vw, 1.8rem); /* Smaller name */
                         font-family: var(--font-heading);
                         margin-bottom: 0.5rem; /* Increased spacing */
                         line-height: 1.1;
-                        color: #000;
+                        color: var(--color-text);
                     }
                     .fs-agent-contact {
                         font-size: 1rem; /* Smaller contact */
@@ -223,8 +229,8 @@ const Home = () => {
                     }
                     .fs-agent-email {
                         font-size: 0.8rem; /* Smaller email */
-                        color: #555;
-                        border-bottom: 1px solid rgba(0,0,0,0.15);
+                        color: var(--color-text-light);
+                        border-bottom: 1px solid var(--color-border);
                         display: inline-block;
                         padding-bottom: 2px;
                         line-height: 1.4; /* Match left column line-height */
@@ -244,9 +250,9 @@ const Home = () => {
                     }
                 `}</style>
             </FullScreenImage>
-            <Details />
-            <Gallery limit={20} randomize={true} />
-            <FloorPlans />
+            {showDetails && <Details />}
+            {showGallery && <Gallery limit={20} randomize={true} />}
+            {showFloorPlans && <FloorPlans />}
             <Footer />
         </main>
     );

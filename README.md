@@ -1,20 +1,32 @@
-<<<<<<< HEAD
-# lobellodr
-=======
-# React + Vite
+# Premium Real Estate Listing Engine
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a high-performance, config-driven template designed for luxury real estate property listings. It is built using **React + Vite** and optimized for scalability across hundreds of individual property domains.
 
-Currently, two official plugins are available:
+## 🚀 Quick Links
+- **[How to add a new property](./ADDING_NEW_PROPERTY.md)** - Start here to add a new listing.
+- **[Multi-Property Strategy](./multi_property_analysis.md)** - Analysis of cost and architecture at scale.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠 Features
+- **Config-Driven:** Add new listings by creating a single `.js` file. No coding required for new properties.
+- **Theme Overrides:** Every property can have its own colors, fonts, and layout vibes.
+- **Dynamic SEO:** Schema.org and Meta tags are automatically generated per listing.
+- **R2 Optimized:** Fast delivery of 4K images and PDF floor plans via Cloudflare R2.
+- **Single Engine:** Update the core code once, and every listing gets the update.
 
-## React Compiler
+## 💻 Local Development
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### View Default Listing (Lobello)
+```bash
+npm run dev
+```
 
-## Expanding the ESLint configuration
+### View a Specific Listing
+```bash
+VITE_PROPERTY_ID=test-id npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
->>>>>>> 3d13b53 (Initial build for LobelloDr)
+## 🏗 Deployment
+Deploy to **Dokploy** or any VPS using Docker. Each listing is a separate service connecting to the same repository, differentiated by the `VITE_PROPERTY_ID` environment variable.
+
+---
+*Built for Pairwell Agents*

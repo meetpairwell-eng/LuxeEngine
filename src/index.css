@@ -23,9 +23,12 @@
   --spacing-lg: 4rem;
   --spacing-xl: 8rem;
 
-  /* Transitions */
-  --transition-fast: 0.2s ease;
-  --transition-medium: 0.4s ease;
+  /* UI Elements */
+  --radius-md: 0px;
+  --btn-padding: 1rem 2.5rem;
+  --ls-widest: 0.3em;
+  --hero-text-align: center;
+  --hero-text-top: 35%;
 }
 
 *,

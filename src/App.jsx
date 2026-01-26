@@ -2,13 +2,43 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import FullGallery from './pages/FullGallery';
-import { propertyInfo } from './config/propertyConfig';
+import { propertyInfo, theme, galleryConfig_LEGACY as galleryConfig } from './config/propertyConfig';
 
 function App() {
   const [isOpen, setIsOpen] = useState(true); // Open by default for scroll effect
   const [isInitialized, setIsInitialized] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === '/';
+
+  // Apply Theme Overrides
+  useEffect(() => {
+    if (theme && theme.colors) {
+      const root = document.documentElement;
+
+      // Map colors
+      if (theme.colors.bg) root.style.setProperty('--color-bg', theme.colors.bg);
+      if (theme.colors.text) root.style.setProperty('--color-text', theme.colors.text);
+      if (theme.colors.textLight) root.style.setProperty('--color-text-light', theme.colors.textLight);
+      if (theme.colors.accent) root.style.setProperty('--color-accent', theme.colors.accent);
+      if (theme.colors.border) root.style.setProperty('--color-border', theme.colors.border);
+      if (theme.colors.overlay) root.style.setProperty('--color-overlay', theme.colors.overlay);
+
+      // Advanced Theme UI
+      if (theme.ui) {
+        if (theme.ui.borderRadius) root.style.setProperty('--radius-md', theme.ui.borderRadius);
+        if (theme.ui.buttonPadding) root.style.setProperty('--btn-padding', theme.ui.buttonPadding);
+        if (theme.ui.letterSpacing) root.style.setProperty('--ls-widest', theme.ui.letterSpacing);
+        if (theme.ui.heroTextAlign) root.style.setProperty('--hero-text-align', theme.ui.heroTextAlign);
+        if (theme.ui.heroTextTop) root.style.setProperty('--hero-text-top', theme.ui.heroTextTop);
+      }
+
+      // Map fonts
+      if (theme.fonts) {
+        if (theme.fonts.heading) root.style.setProperty('--font-heading', theme.fonts.heading);
+        if (theme.fonts.body) root.style.setProperty('--font-body', theme.fonts.body);
+      }
+    }
+  }, [theme]);
 
   // Small delay to ensure smooth initial render
   useEffect(() => {
