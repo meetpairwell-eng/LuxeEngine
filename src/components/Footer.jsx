@@ -22,11 +22,6 @@ const Footer = () => {
                     <div className="footer-main-content">
                         {/* Agent Section */}
                         <div className="footer-agent-info">
-                            {agentInfo.headshot && (
-                                <div className="footer-headshot">
-                                    <img src={agentInfo.headshot} alt={agentInfo.name} />
-                                </div>
-                            )}
                             <h3>{agentInfo.name}</h3>
                             <p className="agent-title">Real Estate Agent</p>
                         </div>
@@ -141,21 +136,6 @@ const Footer = () => {
                     text-align: center;
                 }
 
-                .footer-headshot {
-                    width: 130px;
-                    height: 130px;
-                    border-radius: 0; /* Square headshot */
-                    overflow: hidden;
-                    margin-bottom: 1.5rem;
-                    border: 1px solid #e5e5e5;
-                }
-
-                .footer-headshot img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    object-position: center 20%; /* Shift up slightly to center face better */
-                }
 
                 .footer-agent-info h3 {
                     font-family: var(--font-heading);
