@@ -28,7 +28,7 @@ const FullScreenImage = ({ image, children, sticky = false, stickyContent = null
         }
 
         .fullscreen-image-section.sticky-mode {
-             height: 220vh; /* Precisely calculated for arrive -> rest -> move together */
+             height: 230vh; /* Calibrated for: Arrive (20vh) -> Rest (20vh) -> Sync Move */
         }
 
         .fullscreen-bg {
@@ -88,11 +88,11 @@ const FullScreenImage = ({ image, children, sticky = false, stickyContent = null
         .fullscreen-image-section.sticky-mode .fullscreen-content {
             position: sticky;
             bottom: 0;
-            height: 100vh;
+            height: 120vh; /* Slightly taller than screen to allow 'slide-up' room */
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            margin-top: 100vh; /* Delays image arrival until 100vh scroll */
+            margin-top: 90vh; /* Arrival timing */
             pointer-events: none; 
         }
 
