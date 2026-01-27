@@ -83,8 +83,8 @@ export const images = {
     // Detail Section Images (4 panels)
     detailsLiving: getUrl("1260Norfolk-8.webp"),
     detailsBath: getUrl("1260Norfolk-22.webp"),
-    detailsFinishes: getUrl("1260Norfolk-2.webp"),
-    detailsOutdoor: getUrl("1260Norfolk-23.webp"),
+    detailsFinishes: getUrl("1260Norfolk-23.webp"),
+    detailsOutdoor: getUrl("1260Norfolk-2.webp"),
 
     // Floor Plans
     floorPlanBackground: getUrl("1260Norfolk-37.webp"),
@@ -103,7 +103,7 @@ export const galleryConfig = {
         baseUrl: `${R2_BASE_URL}/${FOLDER_NAME}`,
         filePrefix: "1260Norfolk-",
         extension: ".webp",
-        count: 38,
+        count: 37,
         excludeIndices: [37] // Exclude bird's eye view from main gallery
     },
 
@@ -166,7 +166,7 @@ export const detailSections = [
             "Rapidly growing community with small-town charm",
             "Easy access to Dallas North Tollway",
             "Close to The Gates of Prosper shopping and dining",
-            "community parks, trails, and recreational facilities"
+            "Community parks, trails, and recreational facilities"
         ]
     }
 ];
@@ -187,6 +187,13 @@ export const theme = {
     fonts: {
         heading: "'Marcellus', serif",
         body: "'Outfit', sans-serif"
+    },
+    ui: {
+        borderRadius: "0px",
+        buttonPadding: "1rem 2.5rem",
+        letterSpacing: "0.2em",
+        heroTextAlign: "center",
+        heroTextTop: "48%"
     }
 };
 

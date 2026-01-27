@@ -95,7 +95,7 @@ const Details = () => {
 
       <style>{`
         .details-track {
-          height: ${detailSections.length * 100}vh; /* 100vh per section */
+          height: ${(detailSections.length + 1) * 100}vh; /* Add extra breathing room so the last section sticks longer */
           position: relative;
           z-index: 10;
         }
