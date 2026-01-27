@@ -28,7 +28,7 @@ const FullScreenImage = ({ image, children, sticky = false, stickyContent = null
         }
 
         .fullscreen-image-section.sticky-mode {
-             height: 140vh; /* Calibrated so banner arrives as image starts moving */
+             height: 250vh; /* Track for: Intro (100vh) -> Lock (50vh) -> Sync Move */
         }
 
         .fullscreen-bg {
@@ -84,12 +84,20 @@ const FullScreenImage = ({ image, children, sticky = false, stickyContent = null
             z-index: 10;
         }
 
-        /* Content anchored to bottom of section - move with section */
+        /* Arrive -> Lock -> Sync Move logic */
         .fullscreen-image-section.sticky-mode .fullscreen-content {
-            position: absolute;
+            position: sticky;
             bottom: 0;
-            left: 0;
-            width: 100%;
+            height: 100vh; 
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            margin-top: 100vh; /* Arrives when scroll reaches 100vh */
+            pointer-events: none; 
+        }
+
+        .fullscreen-image-section.sticky-mode .fullscreen-content > * {
+            pointer-events: auto;
         }
 
         .fullscreen-image-section.sticky-mode .fullscreen-content > * {

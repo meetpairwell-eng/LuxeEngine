@@ -9,53 +9,62 @@ const FloorPlans = () => {
 
     return (
         <section className="floor-plans-section">
-            <div className="fp-background-container">
-                {/* The rotating bird's eye view background */}
-                <div className="fp-background">
-                    <img src={galleryConfig.floorPlanConfig.background} alt="Property Layout" />
-                </div>
+            <div className="fp-sticky-wrapper">
+                <div className="fp-background-container">
+                    {/* The rotating bird's eye view background */}
+                    <div className="fp-background">
+                        <img src={galleryConfig.floorPlanConfig.background} alt="Property Layout" />
+                    </div>
 
-                {/* Overlay - Click to close if open */}
-                <div
-                    className={`fp-overlay ${showPlans ? 'clickable' : ''}`}
-                    onClick={() => setShowPlans(false)}
-                ></div>
+                    {/* Overlay - Click to close if open */}
+                    <div
+                        className={`fp-overlay ${showPlans ? 'clickable' : ''}`}
+                        onClick={() => setShowPlans(false)}
+                    ></div>
 
-                <div className={`fp-content container ${showPlans ? 'hidden' : ''}`}>
-                    <button
-                        className="fp-view-btn"
-                        onClick={() => setShowPlans(true)}
-                    >
-                        View Floor Plans
-                    </button>
-                </div>
+                    <div className={`fp-content container ${showPlans ? 'hidden' : ''}`}>
+                        <button
+                            className="fp-view-btn"
+                            onClick={() => setShowPlans(true)}
+                        >
+                            View Floor Plans
+                        </button>
+                    </div>
 
-                {/* Floating Floor Plan Overlay */}
-                <div className={`fp-display ${showPlans ? 'visible' : ''}`}>
-                    {/* Close button for explicit exit */}
-                    <button className="fp-close-btn" onClick={() => setShowPlans(false)}>×</button>
+                    {/* Floating Floor Plan Overlay */}
+                    <div className={`fp-display ${showPlans ? 'visible' : ''}`}>
+                        {/* Close button for explicit exit */}
+                        <button className="fp-close-btn" onClick={() => setShowPlans(false)}>×</button>
 
-                    {(() => {
-                        // Defaulting to floor1 since they are the same PDF currently.
-                        // If they become different, we could add tabs inside this modal.
-                        const src = galleryConfig.floorPlanConfig.floor1;
-                        const isPdf = src?.toLowerCase().endsWith('.pdf');
+                        {(() => {
+                            // Defaulting to floor1 since they are the same PDF currently.
+                            // If they become different, we could add tabs inside this modal.
+                            const src = galleryConfig.floorPlanConfig.floor1;
+                            const isPdf = src?.toLowerCase().endsWith('.pdf');
 
-                        if (isPdf) {
-                            return <iframe src={`${src}#toolbar=0&navpanes=0&scrollbar=0`} title="Floor Plan" className="fp-frame" />;
-                        }
-                        return <img src={src} alt="Floor Plan" className="fp-frame" />;
-                    })()}
+                            if (isPdf) {
+                                return <iframe src={`${src}#toolbar=0&navpanes=0&scrollbar=0`} title="Floor Plan" className="fp-frame" />;
+                            }
+                            return <img src={src} alt="Floor Plan" className="fp-frame" />;
+                        })()}
+                    </div>
                 </div>
             </div>
 
             <style>{`
         .floor-plans-section {
             position: relative;
+            height: 200vh; /* Track depth */
+            z-index: 10;
+        }
+
+        .fp-sticky-wrapper {
+            position: sticky;
+            top: 0;
             height: 100vh;
+            width: 100%;
             overflow: hidden;
             background: #111;
-            color: white;
         }
 
         .fp-background-container {

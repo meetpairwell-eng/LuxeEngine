@@ -147,8 +147,9 @@ const Gallery = ({ limit = null, randomize = false }) => {
         
         .gallery-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-          gap: var(--spacing-xs); /* Tighter gap for mosaic feel */
+          grid-template-columns: repeat(4, 1fr);
+          grid-auto-rows: 280px; /* Standard base height */
+          gap: var(--spacing-xs);
           grid-auto-flow: dense;  /* Fill in gaps */
         }
         
@@ -156,22 +157,20 @@ const Gallery = ({ limit = null, randomize = false }) => {
           overflow: hidden;
           position: relative;
           background: #f0f0f0;
-          height: 300px; /* Base height */
+          height: 100%; /* Fill the grid cell height entirely */
           cursor: pointer;
         }
 
-        /* Varied Sizes */
+        /* Varied Sizes - Spans now perfectly align with the grid gaps */
         .gallery-item.wide {
             grid-column: span 2;
         }
         .gallery-item.tall {
             grid-row: span 2;
-            height: 600px; /* Double height + gap roughly */
         }
         .gallery-item.big {
             grid-column: span 2;
             grid-row: span 2;
-            height: 600px;
         }
         
         .gallery-item img {
@@ -267,7 +266,8 @@ const Gallery = ({ limit = null, randomize = false }) => {
 
         @media (max-width: 768px) {
           .gallery-grid {
-             grid-template-columns: 1fr;
+             grid-template-columns: repeat(2, 1fr);
+             grid-auto-rows: 200px;
           }
           /* Reset spans on mobile */
           .gallery-item.wide, 
