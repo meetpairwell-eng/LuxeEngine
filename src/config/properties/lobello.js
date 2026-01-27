@@ -51,7 +51,15 @@ export const agentInfo = {
     name: "Cole Swearingen",
     phone: "972.971.9586",
     email: "cole.swearingen@compass.com",
-    brokerage: "COMPASS"
+    brokerage: "COMPASS",
+    brokerageLogo: "https://pub-0a14d2bf83cc482ab589da588a45c6b0.r2.dev/compass-logo.webp.png",
+    officePhone: "(214) 814-8100",
+    address: "5960 Berkshire Ln Ste 700, Dallas TX 75225",
+    headshot: "https://pub-0a14d2bf83cc482ab589da588a45c6b0.r2.dev/cole-swearingen-headshot.webp",
+    socialMedia: {
+        facebook: "https://www.facebook.com/cole.swearingen.35/",
+        instagram: "https://www.instagram.com/coleswear/?hl=en"
+    }
 };
 
 // ============================================
