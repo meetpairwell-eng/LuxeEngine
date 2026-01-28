@@ -4,7 +4,6 @@ logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-<<<<<<< HEAD
 lerna-debug.log*
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
@@ -138,11 +137,12 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
-=======
+
+# Debug logs
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
+# Dist
 dist
 dist-ssr
 *.local
@@ -161,4 +161,3 @@ dist-ssr
 # Environment variables
 .env
 .env.*
->>>>>>> 3d13b53 (Initial build for LobelloDr)

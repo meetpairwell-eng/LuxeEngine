@@ -30,7 +30,6 @@ const SEO = () => {
         },
         "numberOfBedrooms": propertyInfo.specs.beds,
         "numberOfBathroomsTotal": propertyInfo.specs.baths,
-        "yearBuilt": 2024, // Assuming new construction or recent, adjusting if needed
         "address": {
             "@type": "PostalAddress",
             "streetAddress": propertyInfo.address,
@@ -39,15 +38,9 @@ const SEO = () => {
             "postalCode": propertyInfo.zip,
             "addressCountry": "US"
         },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 32.8800, // Approx for Lobello Dr Dallas
-            "longitude": -96.8200
-        },
         "url": PROPERTY_URL,
         "image": [
             PROPERTY_IMAGE,
-            // Could add more gallery images here if we have absolute URLs
         ],
         "offers": {
             "@type": "Offer",
@@ -60,17 +53,12 @@ const SEO = () => {
             {
                 "@type": "PropertyValue",
                 "name": "Garage Spaces",
-                "value": 4
-            },
-            {
-                "@type": "PropertyValue",
-                "name": "Pool",
-                "value": true
+                "value": propertyInfo.specs.garage
             },
             {
                 "@type": "PropertyValue",
                 "name": "Lot Size",
-                "value": "0.5 Acre"
+                "value": propertyInfo.specs.lotSize
             }
         ],
         "agent": {

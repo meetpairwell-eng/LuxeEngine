@@ -72,7 +72,6 @@ const Home = () => {
                             {/* Left Column: Title & Description */}
                             <FadeIn direction="up" distance="30px">
                                 <div className="fs-left-col">
-                                    <h2 className="fs-main-title">{propertyInfo.tagline}</h2>
                                     <div className="fs-stats-list uppercase">
                                         <span className="stat-line">{propertyInfo.specs.sqft} SQ FT | {propertyInfo.specs.lotSize} Lot</span>
                                         <span className="stat-line">{propertyInfo.specs.beds} Beds | {propertyInfo.specs.baths} Baths | {propertyInfo.specs.powder} Powder</span>

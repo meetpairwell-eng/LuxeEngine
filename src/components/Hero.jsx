@@ -2,44 +2,40 @@ import React from 'react';
 import { images, propertyInfo } from '../config/propertyConfig';
 
 const Hero = () => {
-  return (
-    <section className="hero">
-      {/* Video Background */}
-      {images.video ? (
-        <video
-          className="hero-video"
-          autoPlay
-          loop
-          muted
-          playsInline
-        >
-          <source src={images.video} type="video/mp4" />
-        </video>
-      ) : (
-        <div className="hero-video-fallback"></div>
-      )}
+    return (
+        <section className="hero">
+            {/* Video Background */}
+            {images.video ? (
+                <video
+                    className="hero-video"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                >
+                    <source src={images.video} type="video/mp4" />
+                </video>
+            ) : (
+                <div className="hero-video-fallback"></div>
+            )}
 
-      {/* Mobile Image Background */}
-      <img
-        src={images.cover}
-        alt={propertyInfo.address}
-        className="hero-mobile-bg"
-      />
+            {/* Mobile Image Background */}
+            <img
+                src={images.cover}
+                alt={propertyInfo.address}
+                className="hero-mobile-bg"
+            />
 
-      {/* Optional Overlay if needed later, currently transparent in CSS */}
-      <div className="hero-overlay"></div>
+            {/* Optional Overlay if needed later, currently transparent in CSS */}
+            <div className="hero-overlay"></div>
 
-      <div className="hero-container">
-        <div className="hero-main-stack">
-          <h1 className="hero-name">{propertyInfo.address}</h1>
-          <p className="hero-subtitle">{propertyInfo.tagline}</p>
-          <div className="hero-actions">
-            <a href="#gallery" className="btn-hero">VIEW PROPERTY</a>
-          </div>
-        </div>
-      </div>
+            <div className="hero-container">
+                <div className="hero-main-stack">
+                    <h1 className="hero-name">{propertyInfo.address}</h1>
+                </div>
+            </div>
 
-      <style>{`
+            <style>{`
                 /* Hero Section Styles */
                 .hero {
                     position: relative;
@@ -82,7 +78,7 @@ const Hero = () => {
                     left: 0;
                     right: 0;
                     bottom: 0;
-                    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+                    background-color: #000000;
                     background-image: url('${images.cover}');
                     background-size: cover;
                     background-position: center;
@@ -225,8 +221,8 @@ const Hero = () => {
                     }
                 }
             `}</style>
-    </section>
-  );
+        </section>
+    );
 };
 
 export default Hero;
