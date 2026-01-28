@@ -130,6 +130,7 @@ const Footer = () => {
                 .footer-agent-info {
                     border-right: 1px solid #e5e5e5;
                     padding-right: 50px;
+                    padding-left: 200px; /* Shifted further to the right */
                     display: flex;
                     flex-direction: column;
                     align-items: flex-start;
