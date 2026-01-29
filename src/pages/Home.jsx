@@ -117,13 +117,21 @@ const Home = () => {
 
                     .fs-text-banner {
                         width: 100%;
-                        background: var(--color-bg); 
-                        opacity: 0.85; /* Slight transparency for the banner */
-                        backdrop-filter: blur(10px);
-                        padding: 2.5rem 0; /* Increased to 2.5rem for less crowded feel */
+                        background: linear-gradient(
+                            to bottom,
+                            rgba(252, 252, 252, 0.95) 0%,
+                            rgba(252, 252, 252, 0.98) 50%,
+                            rgba(252, 252, 252, 1) 100%
+                        );
+                        backdrop-filter: blur(20px) saturate(180%);
+                        -webkit-backdrop-filter: blur(20px) saturate(180%);
+                        padding: 2.5rem 0;
                         color: var(--color-text);
-                        border-top: 1px solid var(--color-border);
-                        box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
+                        border-top: 1px solid rgba(199, 161, 122, 0.2);
+                        box-shadow: 
+                            0 -10px 40px rgba(0, 0, 0, 0.03),
+                            0 -2px 10px rgba(0, 0, 0, 0.02),
+                            inset 0 1px 0 rgba(255, 255, 255, 0.5);
                         position: relative;
                         z-index: 25;
                     }
