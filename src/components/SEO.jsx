@@ -100,8 +100,8 @@ const SEO = () => {
                 {JSON.stringify(schemaData)}
             </script>
 
-            {/* Analytics Integration */}
-            {analytics?.umamiWebsiteId && (
+            {/* Analytics Integration - Skip on localhost */}
+            {analytics?.umamiWebsiteId && typeof window !== 'undefined' && window.location.hostname !== 'localhost' && (
                 <script
                     defer
                     src="https://analytics.meetpairwell.com/script.js"
