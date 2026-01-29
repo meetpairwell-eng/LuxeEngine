@@ -40,7 +40,10 @@ const Hero = () => {
                     <div className="top-left-address">
                         <FadeIn direction="down" distance="30px" duration={1.5}>
                             <div className="tech-tag">RESIDENCE // 5168</div>
-                            <h1 className="framed-name">{propertyInfo.address}</h1>
+                            <h1 className="framed-name">
+                                5168<br />
+                                BRICKELLIA DRIVE
+                            </h1>
                         </FadeIn>
                     </div>
 
@@ -138,7 +141,7 @@ const Hero = () => {
                         z-index: 10;
                         width: 100%;
                         height: 45vh;
-                        padding: 3rem 2rem;
+                        padding: 3rem 1.2rem;
                         background: #0a0a0a;
                         display: flex;
                         flex-direction: column;
@@ -152,7 +155,7 @@ const Hero = () => {
                         content: "";
                         position: absolute;
                         top: 0;
-                        left: 2rem;
+                        left: 1.2rem;
                         width: 1px;
                         height: 100%;
                         background: linear-gradient(to bottom, rgba(255,255,255,0.1), transparent);
@@ -160,7 +163,7 @@ const Hero = () => {
 
                     .top-left-address {
                         text-align: left;
-                        padding-left: 1.5rem;
+                        padding-left: 0.5rem;
                     }
 
                     .tech-tag {
@@ -197,7 +200,7 @@ const Hero = () => {
                     }
 
                     .framed-hud-tech {
-                        padding: 0 1.5rem;
+                        padding: 0 0.5rem;
                         width: 100%;
                     }
 
