@@ -36,19 +36,31 @@ const Hero = () => {
                         <FadeIn direction="up" distance="20px" delay={800} duration={1}>
                             <div className="framed-hud-modern">
                                 <div className="hud-part">
-                                    <span className="hud-val">{propertyInfo.price}</span>
+                                    <div className="hud-metric">
+                                        <span className="hud-label">Price</span>
+                                        <span className="hud-val">{propertyInfo.price}</span>
+                                    </div>
                                 </div>
                                 <div className="hud-divider-v"></div>
                                 <div className="hud-part">
-                                    <span className="hud-val">{propertyInfo.specs.beds} BEDS</span>
+                                    <div className="hud-metric">
+                                        <span className="hud-label">Beds</span>
+                                        <span className="hud-val">{propertyInfo.specs.beds}</span>
+                                    </div>
                                 </div>
                                 <div className="hud-divider-v"></div>
                                 <div className="hud-part">
-                                    <span className="hud-val">{propertyInfo.specs.baths} BATHS</span>
+                                    <div className="hud-metric">
+                                        <span className="hud-label">Baths</span>
+                                        <span className="hud-val">{propertyInfo.specs.baths}</span>
+                                    </div>
                                 </div>
                                 <div className="hud-divider-v"></div>
                                 <div className="hud-part">
-                                    <span className="hud-val">{propertyInfo.specs.sqft.toLocaleString()} SQ FT</span>
+                                    <div className="hud-metric">
+                                        <span className="hud-label">Sq Ft</span>
+                                        <span className="hud-val">{propertyInfo.specs.sqft.toLocaleString()}</span>
+                                    </div>
                                 </div>
                             </div>
                         </FadeIn>
@@ -182,7 +194,7 @@ const Hero = () => {
                         -webkit-backdrop-filter: blur(15px);
                     }
 
-                    /* Mobile Adjustments - 50/50 Split Screen */
+                    /* Mobile Adjustments - 50/50 Split Screen Editorial */
                     @media (max-width: 900px) {
                         .hero-framed {
                             flex-direction: column;
@@ -192,7 +204,7 @@ const Hero = () => {
 
                         .hero-media-wrapper {
                             position: relative;
-                            height: 50vh;
+                            height: 45vh;
                             width: 100%;
                             z-index: 1;
                         }
@@ -202,59 +214,101 @@ const Hero = () => {
                         }
 
                         .hero-overlay-subtle {
-                            height: 20%;
-                            background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, transparent 100%);
+                            height: 30%;
+                            background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, transparent 100%);
                         }
 
                         .hero-frame-border {
-                            display: none;
+                            display: block;
+                            top: 1rem;
+                            left: 1rem;
+                            right: 1rem;
+                            bottom: 1rem;
+                            border: 1px solid rgba(255,255,255,0.3);
+                            height: calc(45vh - 2rem);
                         }
 
                         .framed-content {
-                            height: 50vh;
+                            height: 55vh;
                             width: 100%;
-                            padding: 2rem;
+                            padding: 2.5rem 1.5rem;
                             background: #ffffff;
-                            justify-content: center;
+                            justify-content: flex-start;
                             align-items: center;
                             text-align: center;
+                            position: relative;
+                        }
+
+                        /* Focal Design Line */
+                        .framed-content::before {
+                            content: "";
+                            position: absolute;
+                            top: -1.5rem;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            width: 1px;
+                            height: 3rem;
+                            background: #1a1a1a;
+                            z-index: 50;
                         }
 
                         .top-left-address {
                             text-align: center;
-                            margin-bottom: 2rem;
+                            margin-top: 2rem;
+                            margin-bottom: 2.5rem;
+                            position: relative;
                         }
 
                         .framed-name {
-                            font-size: clamp(1.8rem, 8vw, 2.4rem);
-                            letter-spacing: 0.15em;
+                            font-size: clamp(1.6rem, 7vw, 2.2rem);
+                            letter-spacing: 0.25em;
                             color: #1a1a1a;
                             text-shadow: none;
+                            max-width: 280px;
+                            margin: 0 auto;
                         }
 
                         .bottom-right-hud {
                             justify-content: center;
                             align-items: center;
                             width: 100%;
+                            margin-top: auto;
+                            padding-bottom: 2rem;
                         }
 
                         .framed-hud-modern {
-                            gap: 1.2rem;
-                            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-                            padding: 1rem 0;
-                            flex-wrap: wrap;
-                            justify-content: center;
+                            display: grid;
+                            grid-template-columns: 1fr 1fr;
+                            gap: 1.5rem 0;
+                            border-bottom: none;
+                            border-top: 1px solid rgba(0, 0, 0, 0.08);
+                            padding: 1.5rem 0;
+                            width: 100%;
+                        }
+
+                        .hud-metric {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 0.3rem;
+                        }
+
+                        .hud-label {
+                            font-size: 0.6rem;
+                            letter-spacing: 0.2em;
+                            text-transform: uppercase;
+                            color: #999;
+                            font-weight: 500;
                         }
 
                         .hud-val {
-                            font-size: 0.8rem;
+                            font-size: 1.1rem;
                             color: #1a1a1a;
                             text-shadow: none;
+                            font-weight: 400;
                         }
 
                         .hud-divider-v {
-                            height: 12px;
-                            background: rgba(0, 0, 0, 0.1);
+                            display: none;
                         }
                     }
                 `}</style>
