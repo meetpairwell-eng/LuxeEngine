@@ -120,7 +120,7 @@ const Home = () => {
                         background: var(--color-bg); 
                         opacity: 0.85; /* Slight transparency for the banner */
                         backdrop-filter: blur(10px);
-                        padding: 1.5rem 0; 
+                        padding: 2.5rem 0; /* Increased to 2.5rem for less crowded feel */
                         color: var(--color-text);
                         border-top: 1px solid var(--color-border);
                         box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
@@ -212,6 +212,7 @@ const Home = () => {
                         font-size: clamp(1rem, 1.5vw, 1.2rem);
                         letter-spacing: 0.1rem;
                         margin: 0; /* Removed top margin for alignment */
+                        line-height: 1; /* Explicitly set for vertical calculation */
                         font-weight: 500;
                         color: var(--color-text);
                     }
@@ -219,7 +220,7 @@ const Home = () => {
                         font-family: var(--font-body);
                         font-size: 0.9rem;
                         line-height: 1.6;
-                        margin-top: 1.5rem;
+                        margin-top: 1.8rem; /* Slightly adjusted */
                         max-width: 600px;
                         color: var(--color-text);
                         opacity: 0.9;
@@ -237,7 +238,7 @@ const Home = () => {
                     /* Property Information & Features Styles */
                     .fs-features-list {
                         text-align: right;
-                        margin-top: 3rem; /* Push down to align with description text */
+                        margin-top: 3rem; /* 1.2rem price + 1.8rem margin = 3rem total alignment */
                         margin-bottom: 0.5rem;
                     }
                     .feature-line {
