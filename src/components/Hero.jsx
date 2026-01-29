@@ -311,9 +311,12 @@ const Hero = () => {
                             width: 100%;
                             padding: 2.5rem 1.5rem;
                             background: #0a0a0a;
-                            justify-content: space-between;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: flex-start;
                             align-items: flex-start;
                             text-align: left;
+                            gap: 2.5rem; /* Explicit gap to bring price and address closer */
                         }
 
                         /* Architectural Design Lines */
@@ -370,9 +373,10 @@ const Hero = () => {
                         }
 
                         .tech-price-large {
-                            font-size: 1.8rem; /* Matches framed-name size at small widths */
+                            font-size: 1.8rem; 
                             letter-spacing: 0.15em;
-                            margin-bottom: 0.5rem;
+                            margin: 0;
+                            line-height: 1.1;
                         }
 
                         .tech-specs-row {
