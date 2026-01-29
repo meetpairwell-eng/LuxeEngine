@@ -501,12 +501,12 @@ const Hero = () => {
                     font-size: clamp(2.5rem, 8vw, 6.5rem);
                     font-weight: 300;
                     text-transform: uppercase;
-                    letter-spacing: 0.3em;
+                    letter-spacing: 0.02em;
                     margin: 0;
                     line-height: 1.1;
                     color: #ffffff;
                     text-shadow: 0 4px 20px rgba(0,0,0,0.15);
-                    margin-right: -0.3em;
+                    margin-right: -0.02em;
                     white-space: normal;
                 }
 
@@ -577,8 +577,8 @@ const Hero = () => {
                     }
                     .hero-name {
                         font-size: 2.8rem;
-                        letter-spacing: 0.2em;
-                        margin-right: -0.2em;
+                        letter-spacing: 0.02em;
+                        margin-right: -0.02em;
                         white-space: normal; /* Allow wrap for long addresses */
                         line-height: 1.2;
                     }
