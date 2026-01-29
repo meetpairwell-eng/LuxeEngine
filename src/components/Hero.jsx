@@ -482,15 +482,16 @@ const Hero = () => {
                     height: 100vh;
                     display: flex;
                     flex-direction: column;
-                    justify-content: flex-start; /* Move up from center */
-                    align-items: center;
-                    padding-top: 35vh; /* Position address higher */
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    padding-top: 12vh;
+                    padding-left: 8vw;
                 }
 
                 .hero-main-stack {
-                    text-align: center;
-                    width: 100%;
-                    padding: 0 4rem; /* More horizontal padding */
+                    text-align: left;
+                    width: auto;
+                    padding: 0;
                     margin-bottom: 0;
                 }
 
@@ -565,7 +566,14 @@ const Hero = () => {
                     }
                     .hero-container {
                         justify-content: center;
+                        align-items: center;
                         padding-top: 0;
+                        padding-left: 0;
+                    }
+                    .hero-main-stack {
+                        text-align: center;
+                        width: 100%;
+                        padding: 0 2rem;
                     }
                     .hero-name {
                         font-size: 2.8rem;
