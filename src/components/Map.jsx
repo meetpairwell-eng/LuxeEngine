@@ -15,23 +15,18 @@ const Map = () => {
             script.defer = true;
 
             script.onload = () => {
-                console.log("Google Maps script loaded successfully");
                 initMap();
             };
 
-            script.onerror = (e) => {
-                console.error("Google Maps script failed to load:", e);
-                setError("Google Maps script failed to load. This might be due to an invalid API key, network issues, or domain restrictions.");
+            script.onerror = () => {
+                setError("Unable to load Google Maps. Please check your internet connection.");
             };
 
             document.body.appendChild(script);
         };
 
         const initMap = () => {
-            if (!mapRef.current || !window.google) {
-                console.warn("initMap called but mapRef or window.google not ready");
-                return;
-            }
+            if (!mapRef.current || !window.google) return;
 
             try {
                 // Default location if not provided
@@ -122,10 +117,9 @@ const Map = () => {
                     animation: window.google.maps.Animation.DROP
                 });
 
-                console.log("Map initialized successfully for:", propertyInfo.address);
+
             } catch (err) {
-                console.error("Error initializing map:", err);
-                setError(`Error initializing map: ${err.message}`);
+                setError("Error loading map. Please refresh the page.");
             }
         };
 
@@ -137,10 +131,7 @@ const Map = () => {
                 || import.meta.env.VITE_GOOGLE_MAPS_API_KEY
                 || 'AIzaSyDFBUJSmoJccQw1ZMDUwiBAibiXgwkhxlo';
 
-            console.log("Attempting to load Google Maps with API Key:",
-                apiKey ? `${apiKey.substring(0, 8)}...` : "NONE");
-
-            if (apiKey && apiKey !== 'your_api_key_here') {
+            if (apiKey) {
                 const existingScript = document.getElementById("googleMapsScript");
                 if (!existingScript) {
                     loadScript(`https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`);
@@ -154,9 +145,7 @@ const Map = () => {
                     return () => clearInterval(checkGoogle);
                 }
             } else {
-                const errorMsg = "Google Maps API key is missing or invalid. Please check your .env file or property configuration.";
-                console.error(errorMsg);
-                setError(errorMsg);
+                setError("Google Maps configuration error.");
             }
         }
 
