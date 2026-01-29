@@ -250,7 +250,17 @@ const Details = () => {
 
         /* Typography & List */
         .detail-tag { display: block; font-weight: 500; font-size: 1rem; color: var(--color-accent); margin-bottom: 0.5rem; }
-        .detail-heading { font-size: 2.5rem; margin-bottom: 2rem; }
+        .detail-heading { 
+            font-family: var(--font-body);
+            font-size: clamp(1.4rem, 4vw, 1.8rem); /* Responsive size, max 1.8rem */
+            font-weight: 400; /* Slightly bolder for readability at smaller size */
+            text-transform: uppercase;
+            letter-spacing: 0.15em; /* Increased spacing for modern look */
+            margin-bottom: 2rem;
+            white-space: nowrap; /* Force single line */
+            overflow: hidden; /* handle overflow gently if absolutely necessary */
+            text-overflow: ellipsis;
+        }
         .feature-list { list-style: none; padding: 0; }
         .feature-list li { margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative; color: var(--color-text-light); }
         .feature-list li::before { content: "—"; position: absolute; left: 0; color: var(--color-accent); }

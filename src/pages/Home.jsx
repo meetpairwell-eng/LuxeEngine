@@ -356,6 +356,30 @@ const Home = () => {
                         .fs-main-title { margin-bottom: 1.5rem; }
                         .fs-agent-title { margin-bottom: 0.5rem; }
                     }
+
+                    .gallery-intro {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 4rem 0 2rem 0;
+                        background: #fff;
+                    }
+                    .intro-line {
+                        width: 1px;
+                        height: 40px;
+                        background-color: var(--color-text);
+                        opacity: 0.2;
+                        margin-bottom: 1.5rem;
+                    }
+                    .intro-text {
+                        font-family: var(--font-body);
+                        font-size: 0.75rem;
+                        letter-spacing: 0.25em;
+                        text-transform: uppercase;
+                        color: var(--color-text);
+                        opacity: 0.8;
+                    }
                 `}</style>
             </FullScreenImage>
             {showDetails && (
@@ -363,7 +387,16 @@ const Home = () => {
                     <Details />
                 </section>
             )}
-            {showGallery && <Gallery limit={20} randomize={true} />}
+
+            {showGallery && (
+                <>
+                    <div className="gallery-intro">
+                        <div className="intro-line"></div>
+                        <span className="intro-text">GALLERY</span>
+                    </div>
+                    <Gallery limit={20} randomize={true} />
+                </>
+            )}
             {showFloorPlans && <FloorPlans />}
             <Map />
             <Footer />

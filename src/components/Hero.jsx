@@ -384,7 +384,7 @@ const Hero = () => {
 
             <div className="hero-container">
                 <div className="hero-main-stack">
-                    <FadeIn direction="up" distance="40px" duration={1.2}>
+                    <FadeIn direction="up" distance="40px" duration={1.2} delay={1000}>
                         <h1 className="hero-name">
                             <span className="addr-num">{propertyInfo.address.split(' ')[0]}</span>
                             <span className="addr-street">{propertyInfo.address.split(' ').slice(1).join(' ')}</span>
@@ -467,9 +467,9 @@ const Hero = () => {
                     bottom: 0;
                     background: linear-gradient(
                         to bottom,
-                        rgba(255,255,255,0.05) 0%,
-                        rgba(0,0,0,0.02) 50%,
-                        rgba(0,0,0,0.1) 100%
+                        rgba(10, 35, 90, 0.5) 0%, /* Richer, deeper blue */
+                        rgba(10, 35, 90, 0.15) 50%,
+                        rgba(0,0,0,0.2) 100%
                     );
                     z-index: 1;
                 }
@@ -608,15 +608,16 @@ const Hero = () => {
                     
                     .addr-num {
                         display: block;
-                        font-size: clamp(2.5rem, 11.5vw, 3.8rem); /* Responsive size to fit width */
+                        font-size: clamp(3.5rem, 16vw, 6rem); /* Significantly larger */
                         line-height: 1;
                         margin-bottom: 0;
                     }
                     .addr-street {
                         display: block;
-                        font-size: clamp(2.5rem, 11.5vw, 3.8rem); /* Responsive size to fit width */
+                        font-size: clamp(3.5rem, 16vw, 6rem); /* Significantly larger */
                         letter-spacing: -0.02em;
-                        white-space: nowrap;
+                        white-space: normal; /* Allow wrapping at this large size */
+                        line-height: 0.9;
                         margin-left: 0;
                     }
                     .hero-name-divider {
