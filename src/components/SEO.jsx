@@ -8,7 +8,7 @@ const PROPERTY_DESC = propertyInfo.metaDescription;
 const PROPERTY_URL = `https://www.${propertyInfo.address.toLowerCase().replace(/\s+/g, '')}.com`;
 const PROPERTY_PRICE = propertyInfo.price.replace(/[^0-9]/g, '');
 const PROPERTY_CURRENCY = "USD";
-const PROPERTY_IMAGE = images.hero;
+const PROPERTY_IMAGE = images.share || images.cover || images.hero;
 
 const SEO = () => {
     // Construct Structured Data (JSON-LD)

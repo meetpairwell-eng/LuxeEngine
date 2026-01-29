@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import FullGallery from './pages/FullGallery';
+import SEO from './components/SEO';
 import { propertyInfo, theme, layout, activeId, galleryConfig_LEGACY as galleryConfig } from './config/propertyConfig';
 
 function App() {
@@ -98,6 +99,9 @@ function App() {
           </div>
         </div>
       )}
+
+      {/* Dynamic SEO Meta Tags Rendering */}
+      <SEO />
 
       {/* Routes */}
       <div className={`main-content ${isHome && !isOpen ? 'hidden' : 'visible'}`}>
