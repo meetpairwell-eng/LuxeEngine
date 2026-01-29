@@ -335,34 +335,15 @@ const Hero = () => {
                         }
 
                         .tech-hud-main {
-                            display: grid;
-                            grid-template-columns: 1fr auto;
-                            justify-content: stretch;
-                            gap: 0.5rem 4rem;
-                            align-items: flex-end;
+                            display: flex;
+                            justify-content: flex-end;
                             width: 100%;
                         }
 
-                        .tech-price-large { 
-                            font-size: 2.2rem; 
-                            grid-column: 1;
-                            grid-row: 1;
-                            margin: 0;
-                        }
-                        
-                        .tech-specs-row { 
-                            font-size: 0.85rem; 
-                            gap: 2.5rem; 
-                            color: rgba(255,255,255,0.8); 
-                            grid-column: 1;
-                            grid-row: 2;
-                        }
-                        
-                        .tech-spec-item svg { width: 18px; height: 18px; }
+                        .tech-price-large { display: none; }
+                        .tech-specs-row { display: none; }
 
                         .ghost-photos-btn {
-                            grid-column: 2;
-                            grid-row: 1 / span 2;
                             padding: 0.8rem 1.5rem;
                             font-size: 0.7rem;
                         }
