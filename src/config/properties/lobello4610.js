@@ -35,8 +35,8 @@ export const propertyInfo = {
         sqft: "7,890",
         lotSize: "Half-Acre",
         beds: 5,
-        baths: 6,
-        powder: 2,
+        baths: 4,
+        powder: 3,
         garage: "4-Car",
     },
 

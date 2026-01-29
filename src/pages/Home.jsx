@@ -73,12 +73,6 @@ const Home = () => {
                             {/* Left Column: Title & Description */}
                             <FadeIn direction="up" distance="30px">
                                 <div className="fs-left-col">
-                                    <div className="fs-stats-list uppercase">
-                                        <span className="stat-line">{propertyInfo.specs.sqft} SQ FT | {propertyInfo.specs.lotSize} Lot</span>
-                                        <span className="stat-line">{propertyInfo.specs.beds} Beds | {propertyInfo.specs.baths} Baths | {propertyInfo.specs.powder} Powder</span>
-                                        <span className="stat-line">{propertyInfo.features.join(' | ')}</span>
-                                        <span className="stat-line">Outdoor Terrace | Pool | {propertyInfo.specs.garage} Garage</span>
-                                    </div>
                                     <div className="fs-price">{propertyInfo.price}</div>
                                     {propertyInfo.description && (
                                         <p className="fs-description">{propertyInfo.description}</p>
@@ -86,13 +80,47 @@ const Home = () => {
                                 </div>
                             </FadeIn>
 
-                            {/* Right Column: Agent Info */}
+                            {/* Right Column: Property Specs & Agent Info */}
                             <FadeIn direction="up" distance="30px" delay={200}>
-                                <div className="fs-agent">
-                                    <h4 className="fs-agent-title uppercase">Listed By</h4>
-                                    <p className="fs-agent-name">{agentInfo.name}</p>
-                                    <p className="fs-agent-contact">{agentInfo.phone}</p>
-                                    <p className="fs-agent-email">{agentInfo.email}</p>
+                                <div className="fs-right-col">
+                                    {/* Property Specs */}
+                                    <div className="fs-property-specs">
+                                        <div className="spec-sqft">{propertyInfo.specs.sqft} SQ FT | {propertyInfo.specs.lotSize} Lot</div>
+                                        <div className="spec-rooms">
+                                            <span className="spec-item">
+                                                <svg className="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                                                    <polyline points="9 22 9 12 15 12 15 22" />
+                                                </svg>
+                                                {propertyInfo.specs.beds} Beds
+                                            </span>
+                                            <span className="spec-divider">|</span>
+                                            <span className="spec-item">
+                                                <svg className="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                                    <path d="M9 6L9 3M15 6L15 3M4 10h16M4 10v9a2 2 0 002 2h12a2 2 0 002-2v-9M4 10V7a2 2 0 012-2h12a2 2 0 012 2v3" />
+                                                    <rect x="7" y="14" width="3" height="3" rx="0.5" />
+                                                    <rect x="14" y="14" width="3" height="3" rx="0.5" />
+                                                </svg>
+                                                {propertyInfo.specs.baths} Baths
+                                            </span>
+                                            <span className="spec-divider">|</span>
+                                            <span className="spec-item">{propertyInfo.specs.powder} Powder</span>
+                                        </div>
+                                    </div>
+
+                                    {/* Property Features */}
+                                    <div className="fs-features-list">
+                                        <div className="feature-line">{propertyInfo.features.join(' | ')}</div>
+                                        <div className="feature-line">Outdoor Terrace | Pool | {propertyInfo.specs.garage} Garage</div>
+                                    </div>
+
+                                    {/* Agent Info */}
+                                    <div className="fs-agent">
+                                        <h4 className="fs-agent-title uppercase">Listed By</h4>
+                                        <p className="fs-agent-name">{agentInfo.name}</p>
+                                        <p className="fs-agent-contact">{agentInfo.phone}</p>
+                                        <p className="fs-agent-email">{agentInfo.email}</p>
+                                    </div>
                                 </div>
                             </FadeIn>
                         </div>
@@ -213,6 +241,67 @@ const Home = () => {
                     }
 
                     /* Right Column Styles */
+                    .fs-right-col {
+                        text-align: right;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-end;
+                        gap: 2rem;
+                    }
+                    
+                    /* Property Specs Styles */
+                    .fs-property-specs {
+                        text-align: right;
+                        margin-bottom: 1rem;
+                    }
+                    .spec-sqft {
+                        font-size: clamp(0.75rem, 1.2vw, 0.95rem);
+                        letter-spacing: 0.1rem;
+                        font-weight: 300;
+                        color: var(--color-text-light);
+                        margin-bottom: 0.5rem;
+                        text-transform: uppercase;
+                    }
+                    .spec-rooms {
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-end;
+                        gap: 0.5rem;
+                        font-size: clamp(0.75rem, 1.2vw, 0.95rem);
+                        letter-spacing: 0.1rem;
+                        font-weight: 300;
+                        color: var(--color-text-light);
+                        text-transform: uppercase;
+                    }
+                    .spec-item {
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 0.3rem;
+                    }
+                    .spec-icon {
+                        width: 16px;
+                        height: 16px;
+                        stroke: var(--color-text-light);
+                    }
+                    .spec-divider {
+                        color: var(--color-text-light);
+                        opacity: 0.5;
+                    }
+                    
+                    /* Property Features Styles */
+                    .fs-features-list {
+                        text-align: right;
+                        margin-bottom: 1.5rem;
+                    }
+                    .feature-line {
+                        font-size: clamp(0.75rem, 1.2vw, 0.95rem);
+                        letter-spacing: 0.1rem;
+                        font-weight: 300;
+                        color: var(--color-text-light);
+                        text-transform: uppercase;
+                        line-height: 1.6;
+                    }
+                    
                     .fs-agent { 
                         text-align: right; 
                         display: flex;
@@ -254,9 +343,15 @@ const Home = () => {
                             gap: 3rem;
                             text-align: center;
                        }
-                       .fs-left-col, .fs-agent { 
+                       .fs-left-col, .fs-right-col, .fs-agent, .fs-features-list { 
                            text-align: center; 
                            align-items: center;
+                       }
+                       .fs-property-specs {
+                           text-align: center;
+                       }
+                       .spec-rooms {
+                           justify-content: center;
                        }
                        .fs-main-title { margin-bottom: 2rem; }
                     }
