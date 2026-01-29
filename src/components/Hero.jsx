@@ -20,46 +20,43 @@ const Hero = () => {
                     <div className="hero-overlay-subtle"></div>
                 </div>
 
-                {/* Frame Border */}
-                <div className="hero-frame-border"></div>
+                {/* Frame Border - Becomes corner brackets on mobile */}
+                <div className="hero-frame-border">
+                    <div className="corner-tl"></div>
+                    <div className="corner-tr"></div>
+                    <div className="corner-bl"></div>
+                    <div className="corner-br"></div>
+                </div>
 
                 {/* Content Overlay */}
                 <div className="framed-content">
                     <div className="top-left-address">
                         <FadeIn direction="down" distance="30px" duration={1.5}>
+                            <div className="tech-tag">RESIDENCE // 5168</div>
                             <h1 className="framed-name">{propertyInfo.address}</h1>
                         </FadeIn>
                     </div>
 
-                    {/* Modern Minimal HUD */}
+                    {/* Modern Tech HUD */}
                     <div className="bottom-right-hud">
                         <FadeIn direction="up" distance="20px" delay={800} duration={1}>
-                            <div className="framed-hud-modern">
-                                <div className="hud-part">
-                                    <div className="hud-metric">
-                                        <span className="hud-label">Price</span>
-                                        <span className="hud-val">{propertyInfo.price}</span>
-                                    </div>
+                            <div className="framed-hud-tech">
+                                <div className="tech-hud-header">
+                                    <span className="tech-hud-title">PROPERTY SPECIFICATIONS</span>
+                                    <div className="tech-line-h"></div>
                                 </div>
-                                <div className="hud-divider-v"></div>
-                                <div className="hud-part">
-                                    <div className="hud-metric">
-                                        <span className="hud-label">Beds</span>
-                                        <span className="hud-val">{propertyInfo.specs.beds}</span>
+                                <div className="tech-grid">
+                                    <div className="tech-item">
+                                        <span className="tech-label">VALUATION</span>
+                                        <span className="tech-val">{propertyInfo.price}</span>
                                     </div>
-                                </div>
-                                <div className="hud-divider-v"></div>
-                                <div className="hud-part">
-                                    <div className="hud-metric">
-                                        <span className="hud-label">Baths</span>
-                                        <span className="hud-val">{propertyInfo.specs.baths}</span>
+                                    <div className="tech-item">
+                                        <span className="tech-label">INTERIOR</span>
+                                        <span className="tech-val">{propertyInfo.specs.sqft} <small>SQFT</small></span>
                                     </div>
-                                </div>
-                                <div className="hud-divider-v"></div>
-                                <div className="hud-part">
-                                    <div className="hud-metric">
-                                        <span className="hud-label">Sq Ft</span>
-                                        <span className="hud-val">{propertyInfo.specs.sqft.toLocaleString()}</span>
+                                    <div className="tech-item">
+                                        <span className="tech-label">QUARTERS</span>
+                                        <span className="tech-val">{propertyInfo.specs.beds} <small>BEDS</small> / {propertyInfo.specs.baths} <small>BATHS</small></span>
                                     </div>
                                 </div>
                             </div>
@@ -111,9 +108,27 @@ const Hero = () => {
                         left: 2rem;
                         right: 2rem;
                         bottom: 2rem;
-                        border: 1px solid rgba(255, 255, 255, 0.4);
+                        border: 1px solid rgba(255, 255, 255, 0.2);
                         z-index: 5;
                         pointer-events: none;
+                    }
+
+                    .tech-tag {
+                        font-family: var(--font-body);
+                        font-size: 0.65rem;
+                        letter-spacing: 0.4em;
+                        color: rgba(255,255,255,0.6);
+                        margin-bottom: 0.8rem;
+                        display: flex;
+                        align-items: center;
+                        gap: 1rem;
+                    }
+
+                    .tech-tag::after {
+                        content: "";
+                        width: 40px;
+                        height: 1px;
+                        background: rgba(255,255,255,0.3);
                     }
 
                     .framed-content {
@@ -143,68 +158,87 @@ const Hero = () => {
                         text-shadow: 0 4px 20px rgba(0,0,0,0.3);
                     }
 
-                    .framed-subtitle {
-                        font-family: var(--font-body);
-                        font-size: 0.8rem;
-                        letter-spacing: 0.4em;
-                        text-transform: uppercase;
-                        color: rgba(255,255,255,0.7);
-                        margin-top: 1rem;
-                        margin-left: 0.3rem;
-                    }
-
                     .bottom-right-hud {
                         display: flex;
                         justify-content: flex-end;
                         align-items: flex-end;
                     }
 
-                    /* Modern Linear HUD Style */
-                    .framed-hud-modern {
+                    /* Modern Tech HUD Style */
+                    .framed-hud-tech {
+                        background: rgba(0,0,0,0.4);
+                        backdrop-filter: blur(10px);
+                        border: 1px solid rgba(255,255,255,0.1);
+                        padding: 2rem;
+                        width: 450px;
                         display: flex;
-                        align-items: center;
+                        flex-direction: column;
                         gap: 1.5rem;
-                        padding: 0.5rem 0;
-                        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
                     }
 
-                    .hud-part {
+                    .tech-hud-header {
                         display: flex;
-                        align-items: center;
+                        flex-direction: column;
+                        gap: 0.8rem;
                     }
 
-                    .hud-val {
+                    .tech-hud-title {
+                        font-family: var(--font-body);
+                        font-size: 0.6rem;
+                        letter-spacing: 0.3em;
+                        color: rgba(255,255,255,0.5);
+                    }
+
+                    .tech-line-h {
+                        width: 100%;
+                        height: 1px;
+                        background: linear-gradient(to right, rgba(255,255,255,0.3), transparent);
+                    }
+
+                    .tech-grid {
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+                        gap: 2rem;
+                    }
+
+                    .tech-item {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.4rem;
+                    }
+
+                    .tech-label {
+                        font-size: 0.55rem;
+                        letter-spacing: 0.2em;
+                        color: rgba(255,255,255,0.4);
+                        font-weight: 500;
+                    }
+
+                    .tech-val {
                         color: #fff;
                         font-family: var(--font-body);
-                        font-size: clamp(0.9rem, 1.6vw, 1.3rem);
-                        letter-spacing: 0.2em;
-                        font-weight: 500;
-                        text-transform: uppercase;
-                        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+                        font-size: 1.1rem;
+                        letter-spacing: 0.1em;
+                        font-weight: 300;
                     }
 
-                    .hud-divider-v {
-                        width: 1px;
-                        height: 12px;
-                        background: rgba(255, 255, 255, 0.3);
+                    .tech-val small {
+                        font-size: 0.6rem;
+                        opacity: 0.6;
+                        letter-spacing: 0.1em;
                     }
 
-                    .backdrop-blur {
-                        backdrop-filter: blur(15px);
-                        -webkit-backdrop-filter: blur(15px);
-                    }
-
-                    /* Mobile Adjustments - 50/50 Split Screen Editorial */
+                    /* Mobile Adjustments - Modern Techy HUD */
                     @media (max-width: 900px) {
                         .hero-framed {
                             flex-direction: column;
                             height: 100vh;
-                            background: #fff;
+                            background: #000;
                         }
 
                         .hero-media-wrapper {
                             position: relative;
-                            height: 45vh;
+                            height: 55vh;
                             width: 100%;
                             z-index: 1;
                         }
@@ -213,102 +247,93 @@ const Hero = () => {
                             opacity: 1;
                         }
 
-                        .hero-overlay-subtle {
-                            height: 30%;
-                            background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, transparent 100%);
+                        /* Target Viewfinder corners on mobile */
+                        .hero-frame-border {
+                            top: 1.5rem;
+                            left: 1.5rem;
+                            right: 1.5rem;
+                            height: calc(55vh - 3rem);
+                            border: none;
                         }
 
-                        .hero-frame-border {
-                            display: block;
-                            top: 1rem;
-                            left: 1rem;
-                            right: 1rem;
-                            bottom: 1rem;
-                            border: 1px solid rgba(255,255,255,0.3);
-                            height: calc(45vh - 2rem);
+                        .corner-tl, .corner-tr, .corner-bl, .corner-br {
+                            position: absolute;
+                            width: 20px;
+                            height: 20px;
+                            border: 1px solid rgba(255,255,255,0.5);
                         }
+                        .corner-tl { top: 0; left: 0; border-right: none; border-bottom: none; }
+                        .corner-tr { top: 0; right: 0; border-left: none; border-bottom: none; }
+                        .corner-bl { bottom: 0; left: 0; border-right: none; border-top: none; }
+                        .corner-br { bottom: 0; right: 0; border-left: none; border-top: none; }
 
                         .framed-content {
-                            height: 55vh;
+                            height: 45vh;
                             width: 100%;
                             padding: 2.5rem 1.5rem;
-                            background: #ffffff;
-                            justify-content: flex-start;
-                            align-items: center;
-                            text-align: center;
-                            position: relative;
+                            background: #0a0a0a;
+                            justify-content: space-between;
+                            align-items: flex-start;
+                            text-align: left;
                         }
 
-                        /* Focal Design Line */
+                        /* Architectural Design Lines */
                         .framed-content::before {
                             content: "";
                             position: absolute;
-                            top: -1.5rem;
-                            left: 50%;
-                            transform: translateX(-50%);
+                            top: 0;
+                            left: 1.5rem;
                             width: 1px;
-                            height: 3rem;
-                            background: #1a1a1a;
-                            z-index: 50;
+                            height: 100%;
+                            background: linear-gradient(to bottom, rgba(255,255,255,0.1), transparent);
                         }
 
                         .top-left-address {
-                            text-align: center;
-                            margin-top: 2rem;
-                            margin-bottom: 2.5rem;
-                            position: relative;
+                            text-align: left;
+                            margin: 0;
+                            padding-left: 1.5rem;
+                        }
+
+                        .tech-tag {
+                            font-size: 0.55rem;
                         }
 
                         .framed-name {
-                            font-size: clamp(1.6rem, 7vw, 2.2rem);
-                            letter-spacing: 0.25em;
-                            color: #1a1a1a;
+                            font-size: 1.8rem;
+                            letter-spacing: 0.15em;
+                            color: #fff;
                             text-shadow: none;
-                            max-width: 280px;
-                            margin: 0 auto;
+                            max-width: 100%;
                         }
 
                         .bottom-right-hud {
-                            justify-content: center;
-                            align-items: center;
                             width: 100%;
-                            margin-top: auto;
-                            padding-bottom: 2rem;
+                            justify-content: flex-start;
                         }
 
-                        .framed-hud-modern {
-                            display: grid;
-                            grid-template-columns: 1fr 1fr;
-                            gap: 1.5rem 0;
-                            border-bottom: none;
-                            border-top: 1px solid rgba(0, 0, 0, 0.08);
-                            padding: 1.5rem 0;
+                        .framed-hud-tech {
+                            background: transparent;
+                            border: none;
+                            padding: 1rem 0 1rem 1.5rem;
                             width: 100%;
+                            gap: 1.2rem;
+                            backdrop-filter: none;
                         }
 
-                        .hud-metric {
-                            display: flex;
-                            flex-direction: column;
-                            gap: 0.3rem;
+                        .tech-hud-header {
+                            gap: 0.5rem;
                         }
 
-                        .hud-label {
-                            font-size: 0.6rem;
-                            letter-spacing: 0.2em;
-                            text-transform: uppercase;
-                            color: #999;
-                            font-weight: 500;
+                        .tech-hud-title {
+                            font-size: 0.5rem;
                         }
 
-                        .hud-val {
-                            font-size: 1.1rem;
-                            color: #1a1a1a;
-                            text-shadow: none;
-                            font-weight: 400;
+                        .tech-grid {
+                            gap: 1.5rem;
                         }
 
-                        .hud-divider-v {
-                            display: none;
+                        .tech-val {
+                            font-size: 0.95rem;
                         }
                     }
                 `}</style>
