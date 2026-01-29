@@ -28,7 +28,6 @@ const Hero = () => {
                     <div className="top-left-address">
                         <FadeIn direction="down" distance="30px" duration={1.5}>
                             <h1 className="framed-name">{propertyInfo.address}</h1>
-                            <div className="framed-subtitle">Contemporary Luxury Living</div>
                         </FadeIn>
                     </div>
 
