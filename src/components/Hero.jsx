@@ -216,6 +216,7 @@ const Hero = () => {
                         letter-spacing: 0.15em;
                         line-height: 1;
                         text-transform: uppercase;
+                        grid-row: 1;
                         grid-column: 1;
                     }
 
@@ -231,6 +232,7 @@ const Hero = () => {
                         gap: 0.8rem;
                         cursor: pointer;
                         transition: all 0.3s ease;
+                        grid-row: 1;
                         grid-column: 2;
                     }
 
@@ -249,6 +251,7 @@ const Hero = () => {
                         font-size: 0.65rem;
                         letter-spacing: 0.2rem;
                         text-transform: uppercase;
+                        grid-row: 2;
                         grid-column: 1 / -1;
                     }
 
