@@ -344,8 +344,7 @@ const Hero = () => {
                         .tech-specs-row { display: none; }
 
                         .ghost-photos-btn {
-                            padding: 0.8rem 1.5rem;
-                            font-size: 0.7rem;
+                            display: none;
                         }
                     }
                 `}</style>
