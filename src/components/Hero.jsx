@@ -45,17 +45,14 @@ const Hero = () => {
                                     <span className="tech-hud-title">PROPERTY SPECIFICATIONS</span>
                                     <div className="tech-line-h"></div>
                                 </div>
-                                <div className="tech-grid">
-                                    <div className="tech-item">
-                                        <span className="tech-val">{propertyInfo.price}</span>
-                                    </div>
-                                    <div className="tech-item">
-                                        <span className="tech-label">INTERIOR</span>
-                                        <span className="tech-val">{propertyInfo.specs.sqft} <small>SQFT</small></span>
-                                    </div>
-                                    <div className="tech-item">
-                                        <span className="tech-label">QUARTERS</span>
-                                        <span className="tech-val">{propertyInfo.specs.beds} <small>BEDS</small> / {propertyInfo.specs.baths} <small>BATHS</small></span>
+                                <div className="tech-hud-main">
+                                    <div className="tech-price-large">{propertyInfo.price}</div>
+                                    <div className="tech-specs-row">
+                                        <span className="tech-spec-item">{propertyInfo.specs.beds} BEDS</span>
+                                        <div className="tech-spec-dot"></div>
+                                        <span className="tech-spec-item">{propertyInfo.specs.baths} BATHS</span>
+                                        <div className="tech-spec-dot"></div>
+                                        <span className="tech-spec-item">{propertyInfo.specs.sqft.toLocaleString()} SQ FT</span>
                                     </div>
                                 </div>
                             </div>
@@ -227,6 +224,33 @@ const Hero = () => {
                         letter-spacing: 0.1em;
                     }
 
+                    .tech-price-large {
+                        font-family: 'Marcellus', serif;
+                        font-size: clamp(2.5rem, 6vw, 3.8rem);
+                        color: #fff;
+                        letter-spacing: 0.05em;
+                        margin-bottom: 0.5rem;
+                        line-height: 1;
+                    }
+
+                    .tech-specs-row {
+                        display: flex;
+                        align-items: center;
+                        gap: 1rem;
+                        color: rgba(255,255,255,0.6);
+                        font-family: var(--font-body);
+                        font-size: 0.75rem;
+                        letter-spacing: 0.15em;
+                        text-transform: uppercase;
+                    }
+
+                    .tech-spec-dot {
+                        width: 3px;
+                        height: 3px;
+                        background: rgba(255,255,255,0.3);
+                        border-radius: 50%;
+                    }
+
                     /* Mobile Adjustments - Modern Techy HUD */
                     @media (max-width: 900px) {
                         .hero-framed {
@@ -323,16 +347,25 @@ const Hero = () => {
                             gap: 0.5rem;
                         }
 
-                        .tech-hud-title {
-                            font-size: 0.5rem;
+                        .tech-hud-main {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 1rem;
                         }
 
-                        .tech-grid {
-                            gap: 1.5rem;
+                        .tech-price-large {
+                            font-size: 2.2rem;
+                            margin: 0;
                         }
 
-                        .tech-val {
-                            font-size: 0.95rem;
+                        .tech-specs-row {
+                            gap: 0.8rem;
+                            font-size: 0.65rem;
+                            flex-wrap: wrap;
+                        }
+
+                        .tech-spec-dot {
+                            display: block;
                         }
                     }
                 `}</style>
