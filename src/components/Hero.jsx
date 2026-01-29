@@ -45,6 +45,10 @@ const Hero = () => {
                                 </div>
                                 <div className="hud-divider-v"></div>
                                 <div className="hud-part">
+                                    <span className="hud-val">{propertyInfo.specs.baths} BATHS</span>
+                                </div>
+                                <div className="hud-divider-v"></div>
+                                <div className="hud-part">
                                     <span className="hud-val">{propertyInfo.specs.sqft.toLocaleString()} SQ FT</span>
                                 </div>
                             </div>
@@ -161,7 +165,7 @@ const Hero = () => {
                     .hud-val {
                         color: #fff;
                         font-family: var(--font-body);
-                        font-size: 0.75rem;
+                        font-size: clamp(0.75rem, 1.2vw, 0.9rem);
                         letter-spacing: 0.2em;
                         font-weight: 500;
                         text-transform: uppercase;
