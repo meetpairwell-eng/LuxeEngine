@@ -83,20 +83,14 @@ const Home = () => {
                             {/* Right Column: Property Specs & Agent Info */}
                             <FadeIn direction="up" distance="30px" delay={200}>
                                 <div className="fs-right-col">
-                                    {/* Property Specs */}
-                                    <div className="fs-property-specs">
-                                        <div className="spec-rooms">
-                                            <span className="spec-item">{propertyInfo.specs.beds} Beds</span>
-                                            <span className="spec-divider">|</span>
-                                            <span className="spec-item">{propertyInfo.specs.baths} Baths</span>
-                                            <span className="spec-divider">|</span>
-                                            <span className="spec-item">{propertyInfo.specs.powder} Powder</span>
-                                        </div>
-                                        <div className="spec-sqft">{propertyInfo.specs.sqft} SQ FT | {propertyInfo.specs.lotSize} Lot</div>
-                                    </div>
-
-                                    {/* Property Features */}
+                                    {/* Property Information & Features */}
                                     <div className="fs-features-list">
+                                        <div className="feature-line">
+                                            {propertyInfo.specs.beds} Beds | {propertyInfo.specs.baths} Baths | {propertyInfo.specs.powder} Powder
+                                        </div>
+                                        <div className="feature-line">
+                                            {propertyInfo.specs.sqft} SQ FT | {propertyInfo.specs.lotSize} Lot
+                                        </div>
                                         <div className="feature-line">{propertyInfo.features.join(' | ')}</div>
                                         <div className="feature-line">Outdoor Terrace | Pool | {propertyInfo.specs.garage} Garage</div>
                                     </div>
@@ -236,49 +230,10 @@ const Home = () => {
                         gap: 2rem;
                     }
                     
-                    /* Property Specs Styles */
-                    .fs-property-specs {
-                        text-align: right;
-                        margin-bottom: 1rem;
-                    }
-                    .spec-sqft {
-                        font-size: clamp(0.75rem, 1.2vw, 0.95rem);
-                        letter-spacing: 0.1rem;
-                        font-weight: 300;
-                        color: var(--color-text); /* Darkened text */
-                        margin-top: 0.5rem;
-                        text-transform: uppercase;
-                    }
-                    .spec-rooms {
-                        display: flex;
-                        align-items: center;
-                        justify-content: flex-end;
-                        gap: 0.5rem;
-                        font-size: clamp(0.75rem, 1.2vw, 0.95rem);
-                        letter-spacing: 0.1rem;
-                        font-weight: 300;
-                        color: var(--color-text); /* Darkened text */
-                        text-transform: uppercase;
-                    }
-                    .spec-item {
-                        display: inline-flex;
-                        align-items: center;
-                        gap: 0.3rem;
-                    }
-                    .spec-icon {
-                        width: 16px;
-                        height: 16px;
-                        stroke: var(--color-text-light);
-                    }
-                    .spec-divider {
-                        color: var(--color-text-light);
-                        opacity: 0.5;
-                    }
-                    
-                    /* Property Features Styles */
+                    /* Property Information & Features Styles */
                     .fs-features-list {
                         text-align: right;
-                        margin-bottom: 1.5rem;
+                        margin-bottom: 2rem;
                     }
                     .feature-line {
                         font-size: clamp(0.75rem, 1.2vw, 0.95rem);
@@ -333,12 +288,6 @@ const Home = () => {
                        .fs-left-col, .fs-right-col, .fs-agent, .fs-features-list { 
                            text-align: center; 
                            align-items: center;
-                       }
-                       .fs-property-specs {
-                           text-align: center;
-                       }
-                       .spec-rooms {
-                           justify-content: center;
                        }
                        .fs-main-title { margin-bottom: 2rem; }
                     }
