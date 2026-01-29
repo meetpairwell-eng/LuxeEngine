@@ -47,10 +47,6 @@ const Hero = () => {
                                 </div>
                                 <div className="tech-grid">
                                     <div className="tech-item">
-                                        <span className="tech-label">VALUATION</span>
-                                        <span className="tech-val">{propertyInfo.price}</span>
-                                    </div>
-                                    <div className="tech-item">
                                         <span className="tech-label">INTERIOR</span>
                                         <span className="tech-val">{propertyInfo.specs.sqft} <small>SQFT</small></span>
                                     </div>
