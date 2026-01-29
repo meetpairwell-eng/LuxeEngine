@@ -1,8 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { propertyInfo, theme } from '../config/propertyConfig';
 
 const Map = () => {
     const mapRef = useRef(null);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const loadScript = (url) => {
@@ -114,7 +115,14 @@ const Map = () => {
         if (window.google && window.google.maps) {
             initMap();
         } else {
-            const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+            // Try multiple sources for API key in order of preference:
+            // 1. Property-level config (allows per-property keys)
+            // 2. Environment variable (secure, deployment-specific)
+            // 3. Hardcoded fallback (last resort for immediate functionality)
+            const apiKey = propertyInfo.googleMapsApiKey
+                || import.meta.env.VITE_GOOGLE_MAPS_API_KEY
+                || 'AIzaSyDFBUJSmoJccQw1ZMDUwiBAibiXgwkhxlo'; // Fallback key
+
             if (apiKey) {
                 const existingScript = document.getElementById("googleMapsScript");
                 if (!existingScript) {
@@ -131,7 +139,9 @@ const Map = () => {
                     return () => clearInterval(checkGoogle);
                 }
             } else {
-                console.error("Google Maps API key is missing under VITE_GOOGLE_MAPS_API_KEY");
+                const errorMsg = "Google Maps API key is missing. Please set VITE_GOOGLE_MAPS_API_KEY environment variable or add googleMapsApiKey to propertyInfo.";
+                console.error(errorMsg);
+                setError(errorMsg);
             }
         }
 
@@ -139,7 +149,14 @@ const Map = () => {
 
     return (
         <section className="map-section">
-            <div ref={mapRef} className="map-container"></div>
+            {error ? (
+                <div className="map-error">
+                    <p>Unable to load map</p>
+                    <small>{error}</small>
+                </div>
+            ) : (
+                <div ref={mapRef} className="map-container"></div>
+            )}
             <style>{`
                 .map-section {
                     width: 100%;
@@ -148,6 +165,26 @@ const Map = () => {
                 .map-container {
                     width: 100%;
                     height: 100%;
+                }
+                .map-error {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    background: #f5f5f5;
+                    color: #666;
+                    text-align: center;
+                    padding: 2rem;
+                }
+                .map-error p {
+                    font-size: 1.2rem;
+                    margin-bottom: 0.5rem;
+                }
+                .map-error small {
+                    font-size: 0.8rem;
+                    color: #999;
                 }
                 
                 @media (max-width: 768px) {
