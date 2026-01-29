@@ -164,7 +164,7 @@ const Hero = () => {
                     .hud-val {
                         color: #fff;
                         font-family: var(--font-body);
-                        font-size: clamp(1.2rem, 2.2vw, 1.8rem);
+                        font-size: clamp(0.9rem, 1.6vw, 1.3rem);
                         letter-spacing: 0.2em;
                         font-weight: 500;
                         text-transform: uppercase;
