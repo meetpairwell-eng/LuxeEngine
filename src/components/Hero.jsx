@@ -479,29 +479,31 @@ const Hero = () => {
                     height: 100vh;
                     display: flex;
                     flex-direction: column;
-                    justify-content: center;
+                    justify-content: flex-start; /* Move up from center */
                     align-items: center;
+                    padding-top: 35vh; /* Position address higher */
                 }
 
                 .hero-main-stack {
                     text-align: center;
                     width: 100%;
-                    padding: 0 2rem;
-                    margin-bottom: 4vh;
+                    padding: 0 4rem; /* More horizontal padding */
+                    margin-bottom: 0;
                 }
 
                 /* Typography - DRAMATIC MARCELLUS */
                 .hero-name {
                     font-family: 'Marcellus', serif;
-                    font-size: clamp(2.5rem, 8vw, 6.5rem);
+                    font-size: clamp(2rem, 6vw, 5.5rem); /* Slightly smaller to fit 1 line */
                     font-weight: 300;
                     text-transform: uppercase;
                     letter-spacing: 0.3em;
                     margin: 0;
-                    line-height: 1;
+                    line-height: 1.1;
                     color: #ffffff;
                     text-shadow: 0 4px 20px rgba(0,0,0,0.15);
                     margin-right: -0.3em;
+                    white-space: nowrap; /* Force one line */
                 }
 
                 /* Floating HUD Bar */
@@ -509,7 +511,7 @@ const Hero = () => {
                     position: absolute;
                     bottom: 8vh;
                     width: 100%;
-                    display: flex;
+                    display: none; /* Hidden on Desktop */
                     justify-content: center;
                     padding: 0 2rem;
                 }
@@ -558,10 +560,20 @@ const Hero = () => {
                         display: block;
                         z-index: 0;
                     }
+                    .hero-container {
+                        justify-content: center;
+                        padding-top: 0;
+                    }
                     .hero-name {
                         font-size: 2.8rem;
                         letter-spacing: 0.2em;
                         margin-right: -0.2em;
+                        white-space: normal; /* Allow wrap for long addresses */
+                        line-height: 1.2;
+                    }
+                    .hero-hud-wrapper {
+                        display: flex;
+                        bottom: 4vh;
                     }
                     .hero-hud {
                         padding: 0.6rem 1.5rem;
