@@ -242,3 +242,10 @@ export const galleryConfig_LEGACY = {
         floor2: images.floorPlan2
     }
 };
+// ============================================
+// ANALYTICS CONFIGURATION
+// ============================================
+
+export const analytics = {
+    umamiWebsiteId: "d799c9b0-e5a5-4f9f-8a1a-e11bc8e4c677"
+};

@@ -19,5 +19,5 @@ const activeId = import.meta.env.VITE_PROPERTY_ID || 'lobello4610';
 
 const config = properties[activeId] || properties['lobello4610'];
 
-export const { propertyInfo, agentInfo, images, galleryConfig, detailSections, theme, layout, galleryConfig_LEGACY } = config;
+export const { propertyInfo, agentInfo, images, galleryConfig, detailSections, theme, layout, analytics, galleryConfig_LEGACY } = config;
 export { activeId };
