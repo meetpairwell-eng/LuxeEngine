@@ -275,14 +275,14 @@ const Home = () => {
                         font-size: 0.9rem;
                         font-weight: 300;
                         color: var(--color-text);
-                        line-height: 1.6; /* Matched feature-line spacing */
+                        line-height: 1.3; /* Tighter spacing */
                         margin: 0;
                     }
                     .fs-agent-email {
                         font-family: var(--font-body);
                         font-size: 0.9rem;
                         color: var(--color-text);
-                        line-height: 1.6; /* Matched feature-line spacing */
+                        line-height: 1.3; /* Tighter spacing */
                         opacity: 0.9;
                         border-bottom: 1px solid var(--color-border);
                         display: inline-block;
