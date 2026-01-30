@@ -71,10 +71,6 @@ const Gallery = ({ limit = null, randomize = false }) => {
 
         <div className="gallery-grid">
           {displayImages.map((img, index) => {
-            const isMobileHidden = index >= 6;
-            let className = 'gallery-item';
-            if (isMobileHidden) className += ' mobile-hidden';
-
             return (
               <div
                 key={index}
@@ -176,7 +172,7 @@ const Gallery = ({ limit = null, randomize = false }) => {
         }
         
         .gallery-item:hover img {
-          transform: scale(1.05);
+            transform: scale(1.05);
         }
 
         /* LIGHTBOX STYLES */
@@ -254,10 +250,6 @@ const Gallery = ({ limit = null, randomize = false }) => {
           .lb-nav { padding: 0.5rem; font-size: 1.5rem; }
           .lb-prev { left: 10px; }
           .lb-next { right: 10px; }
-          
-          .mobile-hidden {
-              display: none !important;
-          }
         }
 
         /* View All Button */
