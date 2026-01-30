@@ -387,7 +387,16 @@ const Hero = () => {
                     <FadeIn direction="up" distance="40px" duration={1.2} delay={1000}>
                         <h1 className="hero-name">
                             <span className="addr-num">{propertyInfo.address.split(' ')[0]}</span>
-                            <span className="addr-street">{propertyInfo.address.split(' ').slice(1).join(' ')}</span>
+                            {/* Desktop: One line */}
+                            <span className="addr-text-desktop">
+                                {propertyInfo.address.split(' ').slice(1).join(' ')}
+                            </span>
+                            {/* Mobile: Stacked */}
+                            <span className="addr-text-mobile">
+                                {propertyInfo.address.split(' ').slice(1).map((word, i) => (
+                                    <span key={i} className="addr-line">{word}</span>
+                                ))}
+                            </span>
                         </h1>
                     </FadeIn>
                 </div>
@@ -498,8 +507,9 @@ const Hero = () => {
                     margin-right: -0.25em;
                 }
 
-                .addr-num, .addr-street { display: inline; }
-                .addr-street { margin-left: 0.3em; }
+                .addr-num, .addr-text-desktop { display: inline; }
+                .addr-text-desktop { margin-left: 0.3em; }
+                .addr-text-mobile { display: none; }
 
                 .hero-name-divider {
                     width: 100px;
@@ -515,24 +525,35 @@ const Hero = () => {
                 @media (max-width: 900px) {
                     /* ... existing ... */
                     
-                    .addr-num {
-                        display: block;
-                        font-family: 'Montserrat', sans-serif;
-                        font-weight: 300; /* Light weight for elegance */
-                        font-size: clamp(3rem, 14vw, 5.5rem); 
-                        letter-spacing: 0.05em;
-                        line-height: 1;
-                        margin-bottom: 0.2rem;
+                    .hero-container {
+                        align-items: flex-start; /* Left align everything */
+                        padding-left: 8vw; /* Indent */
                     }
-                    .addr-street {
+
+                    .hero-main-stack {
+                        text-align: left;
+                        padding: 0;
+                        margin-top: -15vh; /* Pull up slightly */
+                    }
+
+                    .addr-text-desktop { display: none; }
+                    .addr-text-mobile { display: block; }
+
+                    .hero-name {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                    }
+                    
+                    /* Unified Mobile Typography */
+                    .addr-num, .addr-line {
                         display: block;
                         font-family: 'Montserrat', sans-serif;
-                        font-weight: 400; /* Slightly heavier for balance */
-                        font-size: clamp(1.5rem, 7vw, 2.5rem); /* Smaller, more discreet */
-                        letter-spacing: 0.2em; /* Wide tracking */
-                        white-space: normal; 
-                        line-height: 1.2;
-                        margin-left: 0.2em;
+                        font-weight: 300; /* Unified light weight */
+                        font-size: clamp(3.5rem, 14vw, 6rem); /* Same size for all */
+                        letter-spacing: 0.05em;
+                        line-height: 1.1;
+                        margin: 0;
                     }
 
                     .hero-name-divider {

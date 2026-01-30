@@ -151,7 +151,7 @@ function App() {
           background-size: cover;
           background-position: center;
           filter: blur(15px);
-          transform: scale(1.1);
+          transform: scale(1.0);
           transition: filter 1.5s ease;
         }
 
