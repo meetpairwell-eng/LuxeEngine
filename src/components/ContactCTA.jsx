@@ -54,30 +54,28 @@ const ContactCTA = () => {
     return (
         <section className="contact-cta-section">
             <div className="container">
-                <div className="cta-grid">
-                    <div className="cta-image-col">
-                        {/* Fallback to gray box if headshot fails or isn't set, but try to use image from config */}
+                <div className="cta-banner">
+                    {/* Left Side: Agent Info */}
+                    <div className="cta-left">
                         <div className="agent-image-wrapper">
                             <img src={images.headshot || agentInfo.brokerageLogo} alt={agentInfo.name} className="agent-headshot" />
                         </div>
+                        <div className="agent-details">
+                            <span className="agent-label">Presented By</span>
+                            <h2 className="agent-name">{agentInfo.name}</h2>
+                            <span className="agent-brokerage">{agentInfo.brokerage} Real Estate</span>
+                        </div>
                     </div>
 
-                    <div className="cta-content-col">
-                        <h2 className="cta-title">Contact {agentInfo.name}</h2>
-
-                        <p className="cta-text">
-                            Call to arrange a private viewing of the residence.
-                        </p>
-
-                        <div className="cta-contact-details">
-                            <a href={`tel:${agentInfo.phone.replace(/\D/g, '')}`} className="cta-link">{agentInfo.phone}</a>
-                            <span className="separator">•</span>
-                            <a href={`mailto:${agentInfo.email}`} className="cta-link">{agentInfo.email}</a>
-                        </div>
-
-                        <button className="cta-btn" onClick={() => setIsModalOpen(true)}>
-                            Request a Tour
+                    {/* Right Side: CTA Button & Contact Info */}
+                    <div className="cta-right">
+                        <button className="inquire-btn" onClick={() => setIsModalOpen(true)}>
+                            Inquire About This Home
                         </button>
+                        <div className="cta-contact-info">
+                            <a href={`tel:${agentInfo.phone.replace(/\D/g, '')}`} className="cta-phone">{agentInfo.phone}</a>
+                            <a href={`mailto:${agentInfo.email}`} className="cta-email">{agentInfo.email}</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -155,105 +153,128 @@ const ContactCTA = () => {
 
             <style>{`
                 .contact-cta-section {
-                    background-color: #f9f9f9; /* Slight off-white to distinguish section */
-                    padding: 6rem 0;
-                    border-top: 1px solid var(--color-border);
+                    background-color: #f2f2f2; /* Light gray background */
+                    padding: 8rem 0;
+                    border-top: 1px solid #e5e5e5;
                 }
 
-                .cta-grid {
-                    display: grid;
-                    grid-template-columns: 1fr 1.5fr;
-                    gap: 4rem;
-                    align-items: center;
-                    max-width: 900px;
-                    margin: 0 auto;
-                }
-                
-                .cta-image-col {
+                .cta-banner {
                     display: flex;
-                    justify-content: flex-end;
+                    justify-content: space-between;
+                    align-items: center;
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    padding: 0 2rem;
                 }
-                
+
+                /* LEFT SIDE */
+                .cta-left {
+                    display: flex;
+                    align-items: center;
+                    gap: 2rem;
+                }
+
                 .agent-image-wrapper {
-                    width: 250px;
-                    height: 300px;
+                    width: 120px;
+                    height: 120px;
                     overflow: hidden;
-                    background: #e0e0e0;
-                    position: relative;
+                    background: #ccc;
+                    flex-shrink: 0;
                 }
-                
+
                 .agent-headshot {
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
-                    /* Noir filter for consistency with site style if desired, remove if color preferred */
-                    filter: grayscale(100%) contrast(1.1); 
                 }
 
-                .cta-content-col {
-                    text-align: left;
+                .agent-details {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 0.2rem;
                 }
 
-                .cta-title {
+                .agent-label {
+                    font-family: var(--font-body);
+                    font-size: 0.75rem;
+                    text-transform: uppercase;
+                    letter-spacing: 0.15em;
+                    color: #888;
+                    margin-bottom: 0.2rem;
+                }
+
+                .agent-name {
                     font-family: var(--font-heading);
-                    font-size: 2.5rem;
-                    margin: 0 0 0.5rem 0;
+                    font-size: 2rem;
                     text-transform: uppercase;
-                    letter-spacing: 0.05em;
-                }
-                
-                .cta-subtitle {
-                    font-family: var(--font-body);
-                    font-size: 0.9rem;
-                    text-transform: uppercase;
-                    letter-spacing: 0.2em;
-                    color: var(--color-accent);
-                    margin: 0 0 2rem 0;
+                    letter-spacing: 0.1em;
+                    color: #111;
+                    margin: 0;
+                    line-height: 1.1;
+                    font-weight: 400;
                 }
 
-                .cta-text {
+                .agent-brokerage {
                     font-family: var(--font-body);
-                    font-size: 1rem;
-                    color: var(--color-text-light);
-                    line-height: 1.6;
-                    margin-bottom: 2rem;
-                    max-width: 450px;
+                    font-size: 0.8rem;
+                    text-transform: uppercase;
+                    letter-spacing: 0.1em;
+                    color: #666;
+                    margin-top: 0.3rem;
                 }
-                
-                .cta-contact-details {
-                    margin-bottom: 2rem;
-                    font-family: var(--font-body);
-                    font-size: 0.9rem;
-                }
-                
-                .cta-link {
-                    color: var(--color-text);
-                    text-decoration: none;
-                    transition: color 0.3s;
-                }
-                .cta-link:hover { color: var(--color-accent); }
-                
-                .separator { margin: 0 1rem; color: #ccc; }
 
-                .cta-btn {
-                    background: #111;
+                /* RIGHT SIDE */
+                .cta-right {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+                    gap: 1rem;
+                }
+
+                .inquire-btn {
+                    background: #000;
                     color: #fff;
-                    border: 1px solid #111;
-                    padding: 1rem 2.5rem;
+                    border: none;
+                    padding: 1.2rem 3rem;
                     font-family: var(--font-body);
                     font-size: 0.8rem;
                     text-transform: uppercase;
                     letter-spacing: 0.2em;
                     cursor: pointer;
                     transition: all 0.3s ease;
+                    min-width: 280px;
                 }
 
-                .cta-btn:hover {
-                    background: transparent;
-                    color: #111;
+                .inquire-btn:hover {
+                    background: #333;
+                    /* transform: translateY(-2px); Optional subtle lift */
+                }
+
+                .cta-contact-info {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+                    font-family: var(--font-body);
+                    font-size: 0.9rem;
+                    gap: 0.3rem;
+                }
+
+                .cta-phone, .cta-email {
+                    color: #333;
+                    text-decoration: none;
+                    transition: color 0.2s;
                 }
                 
-                /* MODAL STYLES */
+                .cta-email {
+                    color: #666;
+                }
+
+                .cta-phone:hover, .cta-email:hover {
+                    color: #000;
+                }
+
+                /* MODAL STYLES (Keep existing) */
                 .tour-modal-overlay {
                     position: fixed;
                     top: 0; left: 0; width: 100%; height: 100%;
@@ -267,9 +288,9 @@ const ContactCTA = () => {
                     opacity: 0;
                     animation: fadeIn 0.3s forwards;
                 }
-                
+
                 @keyframes fadeIn { to { opacity: 1; } }
-                
+
                 .tour-modal {
                     background: #fff;
                     width: 100%;
@@ -280,9 +301,9 @@ const ContactCTA = () => {
                     transform: translateY(20px);
                     animation: slideUp 0.4s forwards;
                 }
-                
+
                 @keyframes slideUp { to { transform: translateY(0); } }
-                
+
                 .modal-close {
                     position: absolute;
                     top: 1rem; right: 1rem;
@@ -295,7 +316,7 @@ const ContactCTA = () => {
                     transition: color 0.3s;
                 }
                 .modal-close:hover { color: #000; }
-                
+
                 .modal-title {
                     font-family: var(--font-heading);
                     font-size: 1.8rem;
@@ -304,33 +325,33 @@ const ContactCTA = () => {
                     margin: 0 0 0.5rem 0;
                     text-align: center;
                 }
-                
+
                 .modal-desc {
                     text-align: center;
                     color: var(--color-text-light);
                     margin-bottom: 2rem;
                     font-size: 0.9rem;
                 }
-                
+
                 .tour-form {
                     display: flex;
                     flex-direction: column;
                     gap: 1.2rem;
                 }
-                
+
                 .form-group {
                     display: flex;
                     flex-direction: column;
                     gap: 0.5rem;
                 }
-                
+
                 .form-group label {
                     font-size: 0.75rem;
                     text-transform: uppercase;
                     letter-spacing: 0.1em;
                     color: #666;
                 }
-                
+
                 .form-group input, .form-group textarea {
                     padding: 0.8rem;
                     border: 1px solid #ddd;
@@ -342,7 +363,7 @@ const ContactCTA = () => {
                     outline: none;
                     border-color: #111;
                 }
-                
+
                 .submit-btn {
                     margin-top: 1rem;
                     background: #111;
@@ -356,22 +377,44 @@ const ContactCTA = () => {
                 }
                 .submit-btn:disabled { opacity: 0.7; cursor: not-allowed; }
                 .submit-btn:hover:not(:disabled) { opacity: 0.9; }
-                
+
                 .modal-success { text-align: center; padding: 2rem 0; }
                 .error-msg { color: #d32f2f; font-size: 0.9rem; text-align: center; }
 
-                @media (max-width: 768px) {
+                /* RESPONSIVE */
+                @media (max-width: 900px) {
                     .contact-cta-section { padding: 4rem 0; }
-                    .cta-grid {
-                        grid-template-columns: 1fr;
-                        gap: 2rem;
+                    .cta-banner {
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 2.5rem;
+                        text-align: center;
+                        padding: 0 1rem;
+                    }
+
+                    .cta-left {
+                        flex-direction: column;
+                        gap: 1.5rem;
                         text-align: center;
                     }
-                    .cta-image-col { justify-content: center; }
-                    .cta-content-col { text-align: center; }
-                    .cta-title { font-size: 2rem; }
-                    .cta-text { margin-left: auto; margin-right: auto; }
-                    .tour-modal { padding: 2rem; width: 90%; }
+                    
+                    .agent-details {
+                        align-items: center;
+                    }
+                    
+                    .cta-right {
+                        align-items: center;
+                        width: 100%;
+                    }
+                    
+                    .inquire-btn {
+                        width: 100%;
+                    }
+                    
+                    .cta-contact-info {
+                        align-items: center;
+                        margin-top: 1rem;
+                    }
                 }
             `}</style>
         </section>
