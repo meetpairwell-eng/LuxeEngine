@@ -37,15 +37,22 @@ const FloorPlans = () => {
                         <button className="fp-close-btn" onClick={() => setShowPlans(false)}>×</button>
 
                         {(() => {
-                            // Defaulting to floor1 since they are the same PDF currently.
-                            // If they become different, we could add tabs inside this modal.
-                            const src = galleryConfig.floorPlanConfig.floor1;
-                            const isPdf = src?.toLowerCase().endsWith('.pdf');
+                            const src1 = galleryConfig.floorPlanConfig.floor1;
+                            const src2 = galleryConfig.floorPlanConfig.floor2;
+                            const isPdf = src1?.toLowerCase().endsWith('.pdf');
 
                             if (isPdf) {
-                                return <iframe src={`${src}#toolbar=0&navpanes=0&scrollbar=0&zoom=65`} title="Floor Plan" className="fp-frame" />;
+                                return <iframe src={`${src1}#toolbar=0&navpanes=0&scrollbar=0&zoom=65`} title="Floor Plan" className="fp-frame" />;
                             }
-                            return <img src={src} alt="Floor Plan" className="fp-frame" />;
+
+                            return (
+                                <div className="fp-images-container">
+                                    <img src={src1} alt="Floor Plan 1" className="fp-image" />
+                                    {src2 && src1 !== src2 && (
+                                        <img src={src2} alt="Floor Plan 2" className="fp-image" />
+                                    )}
+                                </div>
+                            );
                         })()}
                     </div>
                 </div>
@@ -153,7 +160,8 @@ const FloorPlans = () => {
             pointer-events: none;
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             border-radius: 4px;
-            overflow: hidden;
+            overflow-y: auto; /* Allow scrolling for stacked images */
+            overflow-x: hidden;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
             background: #fff;
         }
@@ -166,9 +174,9 @@ const FloorPlans = () => {
         
         /* Close Button inside Modal */
         .fp-close-btn {
-            position: absolute;
+            position: sticky; /* Sticky close button */
             top: 1rem;
-            right: 1.5rem;
+            left: calc(100% - 3.5rem); /* Positioned right */
             z-index: 30;
             background: black;
             color: white;
@@ -184,6 +192,7 @@ const FloorPlans = () => {
             justify-content: center;
             opacity: 0.8;
             transition: opacity 0.2s;
+            margin-top: 1rem; /* Spacing */
         }
         .fp-close-btn:hover { opacity: 1; }
         
@@ -194,6 +203,22 @@ const FloorPlans = () => {
             display: block;
             object-fit: contain;
         }
+
+        .fp-images-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            gap: 2rem;
+        }
+
+        .fp-image {
+            width: 100%;
+            height: auto;
+            max-width: 1000px;
+            object-fit: contain;
+        }
         
         /* Blur bg when open */
         .floor-plans-section:has(.fp-display.visible) .fp-background {
@@ -201,18 +226,14 @@ const FloorPlans = () => {
         }
         
         @media (max-width: 768px) {
-            .fp-display { width: 95%; height: 70%; } /* Reduced height to frame PDF better */
+            .fp-display { width: 95%; height: 70%; }
             .fp-view-btn { padding: 0.8rem 2rem; font-size: 0.9rem; }
-            .fp-content { padding-bottom: 6rem; } /* Account for mobile browser chrome */
-            
-            /* CSS Hack to Force PDF Zoom Out on Mobile */
-            /* We make the iframe huge (175%) then scale it down (0.57) */
-            /* This mimics a "zoom out" effect for generic iframe content */
-            .fp-frame { 
-                width: 175% !important;
-                height: 175% !important;
-                transform: scale(0.57);
-                transform-origin: 0 0;
+            .fp-content { padding-bottom: 6rem; }
+            .fp-images-container { padding: 1rem; gap: 1rem; }
+            .fp-close-btn { 
+                top: 0.5rem; 
+                left: calc(100% - 3rem); 
+                margin-top: 0.5rem;
             }
         }
       `}</style>
