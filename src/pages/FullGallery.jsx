@@ -13,7 +13,7 @@ const FullGallery = () => {
             <div className="full-gallery-header">
                 <div className="container">
                     <h1 className="fg-title">Full Photo Gallery</h1>
-                    <a href="/" className="fg-back-link">← Back to Home</a>
+                    <a href="/#gallery" className="fg-back-link">← Back to Home</a>
                 </div>
             </div>
 

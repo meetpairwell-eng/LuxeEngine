@@ -57,6 +57,19 @@ const Home = () => {
     const showFloorPlans = layout?.showFloorPlans ?? true;
     const showDetails = layout?.showDetails ?? true;
 
+    // Handle hash scrolling on mount (e.g. coming from "Back to Home")
+    useEffect(() => {
+        if (window.location.hash) {
+            const id = window.location.hash.substring(1);
+            setTimeout(() => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 500); // Slight delay to ensure content is visible
+        }
+    }, []);
+
     return (
         <main>
             <SEO />
@@ -389,13 +402,13 @@ const Home = () => {
             )}
 
             {showGallery && (
-                <>
+                <div id="gallery">
                     <div className="section-intro">
                         <div className="intro-line"></div>
                         <span className="intro-text">GALLERY</span>
                     </div>
                     <Gallery limit={20} randomize={true} />
-                </>
+                </div>
             )}
             {showFloorPlans && <FloorPlans />}
             <div className="section-intro">

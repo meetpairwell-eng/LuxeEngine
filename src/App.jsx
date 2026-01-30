@@ -7,7 +7,7 @@ import SEO from './components/SEO';
 import { propertyInfo, theme, layout, activeId, galleryConfig_LEGACY as galleryConfig } from './config/propertyConfig';
 
 function App() {
-  const [isOpen, setIsOpen] = useState(layout?.showWelcomeScreen === false); // If welcome screen is off, set to open immediately
+  const [isOpen, setIsOpen] = useState(layout?.showWelcomeScreen === false || window.location.hash.length > 0); // Open immediately if disabled OR if linking to a specific section
   const [isInitialized, setIsInitialized] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === '/';
