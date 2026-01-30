@@ -397,8 +397,7 @@ const Hero = () => {
                     <FadeIn direction="up" distance="20px" delay={600} duration={1}>
                         <div className="hero-hud">
                             <div className="hud-item hud-price">{propertyInfo.price}</div>
-                            <div className="hud-divider"></div>
-                            <div className="hud-item">{propertyInfo.specs.sqft.toLocaleString()} SQ FT</div>
+
                         </div>
                     </FadeIn>
                 </div>
