@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { agentInfo, images } from '../config/propertyConfig';
+import { agentInfo, images, propertyInfo } from '../config/propertyConfig';
 
 const ContactCTA = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -7,7 +7,7 @@ const ContactCTA = () => {
         name: '',
         email: '',
         phone: '',
-        message: 'I am interested in scheduling a private tour of 5610 Lobello Drive.'
+        message: `I am interested in scheduling a private tour of ${propertyInfo.address}.`
     });
     const [status, setStatus] = useState('idle'); // idle, submitting, success, error
 
@@ -29,7 +29,7 @@ const ContactCTA = () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     ...formData,
-                    property: '5610 Lobello Drive',
+                    property: propertyInfo.address,
                     source: 'Website Tour Request',
                     timestamp: new Date().toISOString()
                 })
@@ -40,7 +40,7 @@ const ContactCTA = () => {
                 setTimeout(() => {
                     setIsModalOpen(false);
                     setStatus('idle');
-                    setFormData({ ...formData, message: 'I am interested in scheduling a private tour of 5610 Lobello Drive.' });
+                    setFormData({ ...formData, message: `I am interested in scheduling a private tour of ${propertyInfo.address}.` });
                 }, 3000);
             } else {
                 setStatus('error');
