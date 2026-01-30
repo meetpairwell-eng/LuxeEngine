@@ -9,6 +9,7 @@ import FloorPlans from '../components/FloorPlans';
 import Map from '../components/Map';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
+import ContactCTA from '../components/ContactCTA';
 import { images, propertyInfo, agentInfo, layout } from '../config/propertyConfig';
 
 const LifestyleScrollHint = () => {
@@ -403,6 +404,7 @@ const Home = () => {
 
             {showGallery && (
                 <div id="gallery">
+                    <ContactCTA />
                     <div className="section-intro">
                         <div className="intro-line"></div>
                         <span className="intro-text">GALLERY</span>
