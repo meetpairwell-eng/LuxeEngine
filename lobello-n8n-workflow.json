@@ -1,0 +1,73 @@
+{
+    "name": "Lobello Tour Request Handler",
+    "nodes": [
+        {
+            "parameters": {
+                "httpMethod": "POST",
+                "path": "lobello-lead",
+                "responseMode": "onReceived",
+                "options": {}
+            },
+            "name": "Webhook",
+            "type": "n8n-nodes-base.webhook",
+            "typeVersion": 1,
+            "position": [
+                250,
+                300
+            ],
+            "id": "e8a93910-b9f1-4123-9012-321231231231"
+        },
+        {
+            "parameters": {
+                "authentication": "serviceAccount",
+                "serviceAccountEmail": "n8n-gmail-service-account@...",
+                "privateKey": "-----BEGIN PRIVATE KEY-----...",
+                "sendTo": "cole.swearingen@compass.com",
+                "subject": "={{$json.body.property}}: New Tour Request",
+                "emailType": "html",
+                "message": "=<h3>New Private Tour Request</h3>\n<ul>\n<li><strong>Name:</strong> {{$json.body.name}}</li>\n<li><strong>Email:</strong> {{$json.body.email}}</li>\n<li><strong>Phone:</strong> {{$json.body.phone}}</li>\n</ul>\n<p><strong>Message:</strong><br>\n{{$json.body.message}}</p>\n<hr>\n<small>Source: {{$json.body.source}}</small>"
+            },
+            "name": "Gmail (Example)",
+            "type": "n8n-nodes-base.gmail",
+            "typeVersion": 2,
+            "position": [
+                480,
+                300
+            ],
+            "id": "ac839210-9f12-4213-9123-123123123123",
+            "notes": "Configure credentials to send email"
+        },
+        {
+            "parameters": {
+                "content": "=💰 *New Lead for {{$json.body.property}}*\n\n*Name:* {{$json.body.name}}\n*Phone:* {{$json.body.phone}}\n*Email:* {{$json.body.email}}\n\n> {{$json.body.message}}"
+            },
+            "name": "Slack Notification (Example)",
+            "type": "n8n-nodes-base.slack",
+            "typeVersion": 1,
+            "position": [
+                480,
+                500
+            ],
+            "id": "bd739210-8f12-4213-9123-123123123123",
+            "notes": "Optional: Connect to Slack"
+        }
+    ],
+    "connections": {
+        "Webhook": {
+            "main": [
+                [
+                    {
+                        "node": "Gmail (Example)",
+                        "type": "main",
+                        "index": 0
+                    },
+                    {
+                        "node": "Slack Notification (Example)",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        }
+    }
+}
