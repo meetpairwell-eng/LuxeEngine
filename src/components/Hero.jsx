@@ -398,10 +398,6 @@ const Hero = () => {
                         <div className="hero-hud">
                             <div className="hud-item hud-price">{propertyInfo.price}</div>
                             <div className="hud-divider"></div>
-                            <div className="hud-item">{propertyInfo.specs.beds} BEDS</div>
-                            <div className="hud-divider"></div>
-                            <div className="hud-item">{propertyInfo.specs.baths} BATHS</div>
-                            <div className="hud-divider"></div>
                             <div className="hud-item">{propertyInfo.specs.sqft.toLocaleString()} SQ FT</div>
                         </div>
                     </FadeIn>
@@ -496,17 +492,18 @@ const Hero = () => {
                 }
 
                 /* Typography - DRAMATIC MARCELLUS */
+                /* Typography - MODERN EDITORIAL (Montserrat) */
                 .hero-name {
-                    font-family: 'Marcellus', serif;
-                    font-size: clamp(2.3rem, 6.9vw, 6.3rem);
+                    font-family: 'Montserrat', sans-serif; /* Geometric Modern */
+                    font-size: clamp(2rem, 5vw, 4.5rem); 
                     font-weight: 300;
                     text-transform: uppercase;
-                    letter-spacing: -0.02em;
+                    letter-spacing: 0.25em; /* Extra wide for Montserrat */
                     margin: 0;
                     line-height: 1.1;
                     color: #ffffff;
-                    text-shadow: 0 4px 20px rgba(0,0,0,0.15);
-                    margin-right: 0.02em;
+                    text-shadow: 0 4px 30px rgba(0,0,0,0.3);
+                    margin-right: -0.25em;
                 }
 
                 .addr-num, .addr-street { display: inline; }
@@ -519,107 +516,33 @@ const Hero = () => {
                     margin: 2rem auto 0;
                     opacity: 0.7;
                 }
-
-                .hero-description {
-                    font-family: var(--font-heading);
-                    font-size: 1.1rem;
-                    line-height: 1.6;
-                    color: #fff;
-                    text-align: center;
-                    max-width: 600px;
-                    margin: 2rem auto 0;
-                    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-                    font-weight: 300;
-                    letter-spacing: 0.05em;
-                }
-
-                /* Floating HUD Bar */
-                .hero-hud-wrapper {
-                    position: absolute;
-                    bottom: 8vh;
-                    width: 100%;
-                    display: none; /* Hidden on Desktop */
-                    justify-content: center;
-                    padding: 0 2rem;
-                }
-
-                .hero-hud {
-                    display: flex;
-                    align-items: center;
-                    padding: 0.75rem 2.5rem;
-                    background: rgba(255, 255, 255, 0.15);
-                    backdrop-filter: blur(15px) saturate(180%);
-                    -webkit-backdrop-filter: blur(15px) saturate(180%);
-                    border: 1px solid rgba(255, 255, 255, 0.3);
-                    border-radius: 100px;
-                    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-                }
-
-                .hud-item {
-                    font-family: var(--font-body);
-                    font-size: 0.75rem;
-                    font-weight: 500;
-                    letter-spacing: 0.2em;
-                    color: #ffffff;
-                    text-transform: uppercase;
-                    white-space: nowrap;
-                }
-
-                .hud-price {
-                    font-weight: 600;
-                    font-family: 'Marcellus', serif;
-                    font-size: 0.9rem;
-                }
-
-                .hud-divider {
-                    width: 1px;
-                    height: 12px;
-                    background: rgba(255, 255, 255, 0.4);
-                    margin: 0 1.5rem;
-                }
+                
+                /* ... existing ... */
 
                 /* Mobile Adjustments */
                 @media (max-width: 900px) {
-                    .hero-video {
-                        display: none;
-                    }
-                    .hero-mobile-bg {
-                        display: block;
-                        z-index: 0;
-                    }
-                    .hero-container {
-                        justify-content: flex-start;
-                        align-items: flex-start; /* Left align items */
-                        padding-top: 20vh;
-                        padding-left: 2rem; /* Add indentation */
-                    }
-                    .hero-main-stack {
-                        text-align: left; /* Left align text */
-                        width: 100%;
-                        padding: 0;
-                    }
-                    .hero-name {
-                        color: #ffffff;
-                        text-transform: uppercase;
-                        margin: 0;
-                        text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-                        line-height: 0.95;
-                    }
+                    /* ... existing ... */
                     
                     .addr-num {
                         display: block;
-                        font-size: clamp(3.5rem, 16vw, 6rem); /* Significantly larger */
+                        font-family: 'Montserrat', sans-serif;
+                        font-weight: 300; /* Light weight for elegance */
+                        font-size: clamp(3rem, 14vw, 5.5rem); 
+                        letter-spacing: 0.05em;
                         line-height: 1;
-                        margin-bottom: 0;
+                        margin-bottom: 0.2rem;
                     }
                     .addr-street {
                         display: block;
-                        font-size: clamp(3.5rem, 16vw, 6rem); /* Significantly larger */
-                        letter-spacing: -0.02em;
-                        white-space: normal; /* Allow wrapping at this large size */
-                        line-height: 0.9;
-                        margin-left: 0;
+                        font-family: 'Montserrat', sans-serif;
+                        font-weight: 400; /* Slightly heavier for balance */
+                        font-size: clamp(1.5rem, 7vw, 2.5rem); /* Smaller, more discreet */
+                        letter-spacing: 0.2em; /* Wide tracking */
+                        white-space: normal; 
+                        line-height: 1.2;
+                        margin-left: 0.2em;
                     }
+
                     .hero-name-divider {
                         display: none;
                     }
