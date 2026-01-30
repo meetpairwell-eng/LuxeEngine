@@ -104,6 +104,9 @@ export const images = {
     floorPlanBackground: getUrl("5610Lobello-37.webp"),
     floorPlan1: getUrl("5610LobelloFP1.png"),
     floorPlan2: getUrl("5610LobelloFP2.png"),
+
+    // Agent Headshot
+    headshot: getUrl("ColeHeadshot.jpg")
 };
 
 // ============================================
