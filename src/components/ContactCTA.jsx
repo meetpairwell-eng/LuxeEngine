@@ -175,8 +175,8 @@ const ContactCTA = () => {
                 }
 
                 .agent-image-wrapper {
-                    width: 120px;
-                    height: 120px;
+                    width: 250px;
+                    height: 250px;
                     overflow: hidden;
                     background: #ccc;
                     flex-shrink: 0;
