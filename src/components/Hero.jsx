@@ -393,14 +393,7 @@ const Hero = () => {
                 </div>
 
                 {/* Floating Modern HUD */}
-                <div className="hero-hud-wrapper">
-                    <FadeIn direction="up" distance="20px" delay={600} duration={1}>
-                        <div className="hero-hud">
-                            <div className="hud-item hud-price">{propertyInfo.price}</div>
 
-                        </div>
-                    </FadeIn>
-                </div>
             </div>
 
             <style>{`
