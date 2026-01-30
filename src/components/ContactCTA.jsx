@@ -187,7 +187,7 @@ const ContactCTA = () => {
                     height: 100%;
                     object-fit: cover;
                     transform: scale(1.25);
-                    object-position: center 10%;
+                    object-position: center 60%;
                 }
 
                 .agent-details {
