@@ -204,6 +204,16 @@ const FloorPlans = () => {
             .fp-display { width: 95%; height: 70%; } /* Reduced height to frame PDF better */
             .fp-view-btn { padding: 0.8rem 2rem; font-size: 0.9rem; }
             .fp-content { padding-bottom: 6rem; } /* Account for mobile browser chrome */
+            
+            /* CSS Hack to Force PDF Zoom Out on Mobile */
+            /* We make the iframe huge (175%) then scale it down (0.57) */
+            /* This mimics a "zoom out" effect for generic iframe content */
+            .fp-frame { 
+                width: 175% !important;
+                height: 175% !important;
+                transform: scale(0.57);
+                transform-origin: 0 0;
+            }
         }
       `}</style>
         </section>
