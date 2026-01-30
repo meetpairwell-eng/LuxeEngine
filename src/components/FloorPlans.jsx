@@ -43,7 +43,7 @@ const FloorPlans = () => {
                             const isPdf = src?.toLowerCase().endsWith('.pdf');
 
                             if (isPdf) {
-                                return <iframe src={`${src}#toolbar=0&navpanes=0&scrollbar=0&view=Fit`} title="Floor Plan" className="fp-frame" />;
+                                return <iframe src={`${src}#toolbar=0&navpanes=0&scrollbar=0&zoom=65`} title="Floor Plan" className="fp-frame" />;
                             }
                             return <img src={src} alt="Floor Plan" className="fp-frame" />;
                         })()}
