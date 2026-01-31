@@ -22,7 +22,7 @@ const ContactCTA = () => {
 
         try {
             // Using n8n webhook - Replace with your actual webhook URL
-            const WEBHOOK_URL = 'https://n8n.meetpairwell.com/webhook-test/lobello-lead';
+            const WEBHOOK_URL = 'https://n8n.meetpairwell.com/webhook/lobello-lead';
 
             const response = await fetch(WEBHOOK_URL, {
                 method: 'POST',
