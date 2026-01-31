@@ -279,149 +279,207 @@ const ContactCTA = () => {
                     color: #000;
                 }
 
-                /* MODAL STYLES (Keep existing) */
-                .tour-modal-overlay {
-                    position: fixed;
-                    top: 0; left: 0; width: 100%; height: 100%;
-                    background: rgba(0,0,0,0.4);
-                    backdrop-filter: blur(5px);
-                    z-index: 9999;
-                    display: flex;
+                /* MODAL STYLES (Modernized) */
+            .tour-modal-overlay {
+                position: fixed;
+                top: 0; left: 0; width: 100%; height: 100%;
+                background: rgba(0,0,0,0.7);
+                backdrop-filter: blur(8px);
+                z-index: 9999;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 1rem;
+                opacity: 0;
+                animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            }
+
+            @keyframes fadeIn { to { opacity: 1; } }
+
+            .tour-modal {
+                background: #fff;
+                width: 100%;
+                max-width: 550px;
+                padding: 4rem;
+                position: relative;
+                box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+                transform: translateY(30px);
+                animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+                border-radius: 4px;
+            }
+
+            @keyframes slideUp { to { transform: translateY(0); } }
+
+            .modal-close {
+                position: absolute;
+                top: 1.5rem; right: 1.5rem;
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                line-height: 1;
+                cursor: pointer;
+                color: #aaa;
+                transition: all 0.3s ease;
+                padding: 0.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .modal-close:hover { 
+                color: #000;
+                transform: rotate(90deg);
+            }
+
+            .modal-title {
+                font-family: var(--font-heading);
+                font-size: 2.2rem;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                margin: 0 0 1rem 0;
+                text-align: center;
+                font-weight: 300;
+                color: #111;
+            }
+
+            .modal-desc {
+                text-align: center;
+                color: #666;
+                margin-bottom: 3rem;
+                font-size: 0.95rem;
+                font-family: var(--font-body);
+                letter-spacing: 0.02em;
+                line-height: 1.6;
+            }
+
+            .tour-form {
+                display: flex;
+                flex-direction: column;
+                gap: 1.8rem;
+            }
+
+            .form-group {
+                display: flex;
+                flex-direction: column;
+                gap: 0.6rem;
+                position: relative;
+            }
+
+            .form-group label {
+                font-size: 0.7rem;
+                text-transform: uppercase;
+                letter-spacing: 0.15em;
+                color: #999;
+                font-weight: 500;
+            }
+
+            .form-group input, .form-group textarea {
+                padding: 0.8rem 0;
+                border: none;
+                border-bottom: 1px solid #e0e0e0;
+                font-family: var(--font-body);
+                font-size: 1rem;
+                transition: all 0.3s ease;
+                background: transparent;
+                border-radius: 0;
+            }
+            
+            .form-group input:focus, .form-group textarea:focus {
+                outline: none;
+                border-bottom-color: #111;
+            }
+
+            .form-group textarea {
+                resize: none;
+                min-height: 80px;
+            }
+
+            .submit-btn {
+                margin-top: 1.5rem;
+                background: #111;
+                color: #fff;
+                border: none;
+                padding: 1.4rem;
+                text-transform: uppercase;
+                letter-spacing: 0.3em;
+                font-size: 0.85rem;
+                cursor: pointer;
+                transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .submit-btn:disabled { 
+                background: #ccc;
+                cursor: not-allowed; 
+            }
+            
+            .submit-btn:hover:not(:disabled) { 
+                background: #000;
+                letter-spacing: 0.35em;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+            
+            .modal-success { 
+                text-align: center; 
+                padding: 2rem 0;
+                animation: fadeIn 0.5s ease;
+            }
+            
+            .success-icon {
+                color: #111;
+                font-weight: 200;
+            }
+
+            .error-msg { 
+                color: #d32f2f; 
+                font-size: 0.9rem; 
+                text-align: center;
+                margin-top: 1rem;
+                font-family: var(--font-body);
+            }
+
+            /* RESPONSIVE (Modernized) */
+            @media (max-width: 900px) {
+                .contact-cta-section { padding: 4rem 0; }
+                .cta-banner {
+                    flex-direction: column;
                     align-items: center;
-                    justify-content: center;
-                    padding: 1rem;
-                    opacity: 0;
-                    animation: fadeIn 0.3s forwards;
+                    gap: 3rem;
+                    text-align: center;
+                    padding: 0 1.5rem;
                 }
 
-                @keyframes fadeIn { to { opacity: 1; } }
+                .cta-left {
+                    flex-direction: column;
+                    gap: 1.5rem;
+                }
+                
+                .agent-details {
+                    align-items: center;
+                }
+
+                .agent-name {
+                    font-size: 1.8rem;
+                }
+                
+                .cta-right {
+                    align-items: center;
+                    width: 100%;
+                }
+
+                .inquire-btn {
+                    width: 100%;
+                }
+
+                .cta-contact-info {
+                    align-items: center;
+                }
 
                 .tour-modal {
-                    background: #fff;
-                    width: 100%;
-                    max-width: 500px;
-                    padding: 3rem;
-                    position: relative;
-                    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-                    transform: translateY(20px);
-                    animation: slideUp 0.4s forwards;
+                    padding: 3rem 2rem;
                 }
-
-                @keyframes slideUp { to { transform: translateY(0); } }
-
-                .modal-close {
-                    position: absolute;
-                    top: 1rem; right: 1rem;
-                    background: none;
-                    border: none;
-                    font-size: 2rem;
-                    line-height: 1;
-                    cursor: pointer;
-                    color: #999;
-                    transition: color 0.3s;
-                }
-                .modal-close:hover { color: #000; }
-
-                .modal-title {
-                    font-family: var(--font-heading);
-                    font-size: 1.8rem;
-                    text-transform: uppercase;
-                    letter-spacing: 0.05em;
-                    margin: 0 0 0.5rem 0;
-                    text-align: center;
-                }
-
-                .modal-desc {
-                    text-align: center;
-                    color: var(--color-text-light);
-                    margin-bottom: 2rem;
-                    font-size: 0.9rem;
-                }
-
-                .tour-form {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 1.2rem;
-                }
-
-                .form-group {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 0.5rem;
-                }
-
-                .form-group label {
-                    font-size: 0.75rem;
-                    text-transform: uppercase;
-                    letter-spacing: 0.1em;
-                    color: #666;
-                }
-
-                .form-group input, .form-group textarea {
-                    padding: 0.8rem;
-                    border: 1px solid #ddd;
-                    font-family: var(--font-body);
-                    font-size: 1rem;
-                    transition: border-color 0.3s;
-                }
-                .form-group input:focus, .form-group textarea:focus {
-                    outline: none;
-                    border-color: #111;
-                }
-
-                .submit-btn {
-                    margin-top: 1rem;
-                    background: #111;
-                    color: #fff;
-                    border: none;
-                    padding: 1rem;
-                    text-transform: uppercase;
-                    letter-spacing: 0.2em;
-                    cursor: pointer;
-                    transition: opacity 0.3s;
-                }
-                .submit-btn:disabled { opacity: 0.7; cursor: not-allowed; }
-                .submit-btn:hover:not(:disabled) { opacity: 0.9; }
-
-                .modal-success { text-align: center; padding: 2rem 0; }
-                .error-msg { color: #d32f2f; font-size: 0.9rem; text-align: center; }
-
-                /* RESPONSIVE */
-                @media (max-width: 900px) {
-                    .contact-cta-section { padding: 4rem 0; }
-                    .cta-banner {
-                        flex-direction: column;
-                        align-items: center;
-                        gap: 2.5rem;
-                        text-align: center;
-                        padding: 0 1rem;
-                    }
-
-                    .cta-left {
-                        flex-direction: column;
-                        gap: 1.5rem;
-                        text-align: center;
-                    }
-                    
-                    .agent-details {
-                        align-items: center;
-                    }
-                    
-                    .cta-right {
-                        align-items: center;
-                        width: 100%;
-                    }
-                    
-                    .inquire-btn {
-                        width: 100%;
-                    }
-                    
-                    .cta-contact-info {
-                        align-items: center;
-                        margin-top: 1rem;
-                    }
-                }
-            `}</style>
+            }
+`}</style>
         </section>
     );
 };
