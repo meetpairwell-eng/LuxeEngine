@@ -111,11 +111,12 @@ const Home = () => {
                                         <div className="feature-line">
                                             {propertyInfo.specs.sqft} SQ FT | {propertyInfo.specs.lotSize} Lot
                                         </div>
+                                        {/* Dynamic Features from Config */}
                                         <div className="feature-line">
-                                            Study | Game Room | Office | Den
+                                            {propertyInfo.features.slice(0, 4).join(' | ')}
                                         </div>
                                         <div className="feature-line">
-                                            Pool | Outdoor Terrace | {propertyInfo.specs.garage} Garage
+                                            {propertyInfo.features.slice(4, 7).join(' | ')} {propertyInfo.features.length > 4 ? '| ' : ''}{propertyInfo.specs.garage} Garage
                                         </div>
                                     </div>
 
