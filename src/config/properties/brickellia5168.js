@@ -111,6 +111,9 @@ export const images = {
     floorPlanBackground: getUrl("5168Brickellia-37.webp"),
     floorPlan1: getUrl("5168BrickelliaFP.pdf"),
     floorPlan2: getUrl("5168BrickelliaFP.pdf"),
+
+    // Agent Headshot
+    headshot: getGlobalUrl("cole-swearingen-headshot.webp")
 };
 
 // ============================================
