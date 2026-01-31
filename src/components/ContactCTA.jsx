@@ -96,7 +96,7 @@ const ContactCTA = () => {
                             </div>
                         ) : (
                             <>
-                                <h3 className="modal-title">Schedule a Viewing</h3>
+                                <h3 className="modal-title">Contact {agentInfo.name.split(' ')[0]}</h3>
                                 <p className="modal-desc">Please provide your details below.</p>
 
                                 <form onSubmit={handleSubmit} className="tour-form">
