@@ -59,14 +59,13 @@
                 "operation": "append",
                 "documentId": {
                     "__rl": true,
-                    "value": "={{ $json.Lead_Sheet_ID }}",
+                    "value": "YOUR_AGENTS_SHEET_ID",
                     "mode": "id"
                 },
                 "sheetName": {
                     "__rl": true,
-                    "value": "Sheet1",
-                    "mode": "list",
-                    "cachedResultName": "Sheet1"
+                    "value": "={{ $json.Agent_Tab }}",
+                    "mode": "name"
                 },
                 "columns": {
                     "mappingMode": "defineBelow",
