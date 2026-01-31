@@ -52,7 +52,8 @@ export const propertyInfo = {
         "Smart Home",
         "Gourmet Kitchen",
         "Pool Access",
-        "Hardwood Floors"
+        "Hardwood Floors",
+        "Patio",
     ],
 
     // Marketing Copy
@@ -95,6 +96,7 @@ export const images = {
     detailsBath: getUrl("5168Brickellia-13.webp"),
     detailsFinishes: getUrl("5168Brickellia-20.webp"),
     detailsOutdoor: getUrl("5168Brickellia-25.webp"),
+    detailsLocation: "/images/dallas-skyline.png",
 
     // Floor Plans
     floorPlanBackground: getUrl("5168Brickellia-37.webp"),
@@ -169,7 +171,7 @@ export const detailSections = [
     },
     {
         title: "Prime Location",
-        imageKey: "detailsFinishes",
+        imageKey: "detailsLocation",
         features: [
             "Located in the quiet Oak Park community",
             "Effortless access to Uptown and Downtown Dallas",
