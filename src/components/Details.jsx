@@ -252,14 +252,12 @@ const Details = () => {
         .detail-tag { display: block; font-weight: 500; font-size: 1rem; color: var(--color-accent); margin-bottom: 0.5rem; }
         .detail-heading { 
             font-family: 'Montserrat', sans-serif;
-            font-size: clamp(1.4rem, 4vw, 1.8rem); /* Responsive size, max 1.8rem */
-            font-weight: 400; /* Slightly bolder for readability at smaller size */
+            font-size: clamp(1.4rem, 4vw, 1.8rem); 
+            font-weight: 400; 
             text-transform: uppercase;
-            letter-spacing: 0.15em; /* Increased spacing for modern look */
+            letter-spacing: 0.15em; 
             margin-bottom: 2rem;
-            white-space: nowrap; /* Force single line */
-            overflow: hidden; /* handle overflow gently if absolutely necessary */
-            text-overflow: ellipsis;
+            line-height: 1.4; /* Better spacing for multi-line titles */
         }
         .feature-list { list-style: none; padding: 0; }
         .feature-list li { margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative; color: var(--color-text-light); }
@@ -343,12 +341,12 @@ const Details = () => {
            .fixed-stats-container { display: none !important; }
            .scroll-progress-bar { display: none; }
            
-           /* Force headings to fit on one line on mobile */
+           /* Allow headings to wrap naturally on mobile */
            .detail-heading {
-             font-size: 1.25rem !important; /* Increased by ~10-15% */
-             letter-spacing: 0.05em !important; /* Tighter tracking */
-             white-space: nowrap !important;
+             font-size: 1.25rem !important; 
+             letter-spacing: 0.05em !important; 
              margin-bottom: 1rem !important;
+             white-space: normal !important;
            }
         }
       `}</style>
