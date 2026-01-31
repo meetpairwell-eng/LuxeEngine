@@ -88,8 +88,11 @@ const ContactCTA = () => {
 
                         {status === 'success' ? (
                             <div className="modal-success">
-                                <h3>Request Sent</h3>
-                                <p>Thank you for your interest. We will be in touch shortly to confirm your appointment.</p>
+                                <div className="success-icon" style={{ fontSize: '3rem', marginBottom: '1rem' }}>✓</div>
+                                <h3 className="modal-title">Request Received</h3>
+                                <p style={{ fontSize: '1.1rem', lineHeight: '1.6', color: '#666' }}>
+                                    Thank you for your interest. {agentInfo.name.split(' ')[0]} will be in touch shortly to share more about this residence and coordinate your private viewing.
+                                </p>
                             </div>
                         ) : (
                             <>
