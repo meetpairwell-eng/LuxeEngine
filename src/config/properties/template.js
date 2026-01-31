@@ -28,12 +28,9 @@ export const propertyInfo = {
 };
 
 // 2. Real Estate Agent Contact Info
-export const agentInfo = {
-    name: "Listing Agent Name",
-    phone: "214.555.0123",
-    email: "agent@pairwell.io",
-    brokerage: "EXEMPLAR REALTY"
-};
+import { coleAgent } from '../agents/cole';
+export const agentInfo = coleAgent;
+
 
 // 3. Media Assets (Using Lobello images as placeholders)
 const R2_BASE_URL = "https://pub-0a14d2bf83cc482ab589da588a45c6b0.r2.dev";

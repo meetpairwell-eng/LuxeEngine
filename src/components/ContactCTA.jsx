@@ -58,7 +58,7 @@ const ContactCTA = () => {
                     {/* Left Side: Agent Info */}
                     <div className="cta-left">
                         <div className="agent-image-wrapper">
-                            <img src={images.headshot || agentInfo.brokerageLogo} alt={agentInfo.name} className="agent-headshot" />
+                            <img src={agentInfo.headshot || images.headshot || agentInfo.brokerageLogo} alt={agentInfo.name} className="agent-headshot" />
                         </div>
                         <div className="agent-details">
                             <span className="agent-label">Presented By</span>
