@@ -180,7 +180,11 @@ const Hero = () => {
                 
                 /* ... existing ... */
 
-                /* Mobile Adjustments */
+                /* Remove background filter/overlay for Brickellia globally */
+                .is-brickellia .hero-overlay {
+                    display: none;
+                }
+
                 @media (max-width: 900px) {
                     /* ... existing ... */
                     
@@ -233,11 +237,6 @@ const Hero = () => {
                         background: rgba(255, 255, 255, 0.2);
                     }
                     .hud-divider {
-                        display: none;
-                    }
-
-                    /* Remove background filter/overlay for Brickellia mobile */
-                    .is-brickellia .hero-overlay {
                         display: none;
                     }
                 }
