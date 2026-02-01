@@ -348,9 +348,9 @@ const Home = () => {
                         .fs-text-banner {
                             min-height: 100vh;
                             display: flex;
-                            align-items: flex-start; /* Changed from center to prevent top cutoff */
+                            align-items: flex-start; 
                             justify-content: center;
-                            padding: 8rem 1.5rem 4rem 1.5rem; /* More space at the top */
+                            padding: 3.5rem 1.5rem 4rem 1.5rem; /* Reduced top padding to move it up */
                         }
                         .fs-content-layout {
                             grid-template-columns: 1fr;
