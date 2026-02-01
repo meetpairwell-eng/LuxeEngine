@@ -15,7 +15,7 @@ const Hero = () => {
 
 
     return (
-        <section className="hero">
+        <section className={`hero ${isBrickellia ? 'is-brickellia' : ''}`}>
             {/* Video Background */}
             {images.video ? (
                 <video
@@ -233,6 +233,11 @@ const Hero = () => {
                         background: rgba(255, 255, 255, 0.2);
                     }
                     .hud-divider {
+                        display: none;
+                    }
+
+                    /* Remove background filter/overlay for Brickellia mobile */
+                    .is-brickellia .hero-overlay {
                         display: none;
                     }
                 }
