@@ -58,7 +58,7 @@ export const propertyInfo = {
 
     // Marketing Copy
     tagline: "Contemporary Three-Level Living in Oak Park",
-    description: "Set on a quiet street in Oak Park Gardens, 5168 Brickellia Drive delivers contemporary living across three thoughtfully designed levels. This David Weekley townhome features 3 bedrooms, 3.5 baths, and over 1,800 sq ft of bright, airy space. The main level showcases rich hardwood flooring and a gourmet kitchen with custom tile, granite counters, and stainless steel appliances. Designer wallpaper adds a refined touch throughout, leading to a primary suite with a spa-inspired bath and oversized closet. The top floor offers a versatile bonus room opening to a private rooftop deck—perfect for entertaining. Enjoy a low-maintenance lifestyle with community pool and dog park access, all just minutes from the Dallas North Tollway, Uptown, and Love Field.",
+    description: "Located in Oak Park Gardens, 5168 Brickellia Drive offers contemporary living across three levels. This David Weekley townhome features 3 bedrooms, 3.5 baths, and 1,818 sq ft of airy space. The main level showcases hardwood floors and a gourmet kitchen with custom finishes. The primary suite features a spa-inspired bath, while the top floor offers a bonus room opening to a private rooftop deck. Enjoy low-maintenance living with community pool access, minutes from the Dallas North Tollway, Uptown, and Love Field.",
 
     // Meta Description for SEO
     metaDescription: "Explore this contemporary 1,818 sq ft David Weekley townhome in Dallas featuring 3 bedrooms, 3.5 baths, a private rooftop deck, and high-end finishes throughout."
