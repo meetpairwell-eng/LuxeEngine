@@ -38,8 +38,8 @@ const Hero = () => {
                 className="hero-mobile-bg"
             />
 
-            {/* Clean, Modern Overlay (Subtle) */}
-            <div className="hero-overlay"></div>
+            {/* Clean, Modern Overlay (Subtle) - Removed for Brickellia */}
+            {!isBrickellia && <div className="hero-overlay"></div>}
 
             <div className="hero-container">
                 <div className="hero-main-stack">
@@ -178,15 +178,20 @@ const Hero = () => {
                     opacity: 0.7;
                 }
                 
-                /* ... existing ... */
-
                 /* Remove background filter/overlay for Brickellia globally */
                 .is-brickellia .hero-overlay {
-                    display: none;
+                    display: none !important;
+                }
+                
+                .is-brickellia .hero-video {
+                    opacity: 1 !important;
+                }
+                
+                .is-brickellia .hero-video-fallback {
+                    background-color: transparent !important;
                 }
 
                 @media (max-width: 900px) {
-                    /* ... existing ... */
                     
                     .hero-container {
                         align-items: flex-start; /* Left align everything */
