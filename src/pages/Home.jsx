@@ -95,7 +95,7 @@ const Home = () => {
                                         className="explore-btn"
                                         onClick={() => document.getElementById('details-start')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
                                     >
-                                        EXPLORE LOBELLO ↓
+                                        EXPLORE {propertyInfo.address.split(' ')[1].toUpperCase()} ↓
                                     </button>
                                 </div>
                             </FadeIn>
@@ -350,7 +350,7 @@ const Home = () => {
                             display: flex;
                             align-items: center;
                             justify-content: center;
-                            padding: 2rem 0;
+                            padding: 5rem 0; /* Increased top padding even more for safety */
                         }
                         .fs-content-layout {
                             grid-template-columns: 1fr;
