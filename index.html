@@ -12,13 +12,13 @@
   <meta name="keywords" content="real estate, Dallas homes, Compass Real Estate, Cole Swearingen" />
   <meta name="author" content="Cole Swearingen" />
 
-  <!-- Open Graph Meta Tags (Handled dynamically by SEO component) -->
-  <meta property="og:title" content="Premium Real Estate Listing | Cole Swearingen" />
-  <meta property="og:description"
-    content="Explore this exclusive property listing presented by Cole Swearingen - Compass Real Estate." />
+  <!-- Open Graph Meta Tags (Injected by Vite during build) -->
+  <meta property="og:title" content="%PROPERTY_TITLE%" />
+  <meta property="og:description" content="%PROPERTY_DESCRIPTION%" />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="/vite.svg" />
-  <meta property="og:url" content="https://www.coleswear.com" />
+  <meta property="og:image" content="%PROPERTY_IMAGE%" />
+  <meta property="og:url" content="%PROPERTY_URL%" />
+  <title>%PROPERTY_TITLE%</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,7 +33,7 @@
   <!-- Google Maps JavaScript API -->
 
 
-  <title>Cole Swearingen - Compass Real Estate</title>
+
 </head>
 
 <body>
