@@ -21,7 +21,7 @@ export const coleAgent = {
     // Brokerage Docs URLs
     docs: {
         consumerProtection: "https://www.trec.texas.gov/sites/default/files/pdf-forms/CN%201-5_0.pdf",
-        iabs: "https://d1e1jt2fj4r8r.cloudfront.net/938208c7-113c-4b76-96bb-f65cefa93252/pkR5n4vC6/trec.pdf",
+        iabs: "swearingen_IABS.webp",
         disclaimer: "https://d1e1jt2fj4r8r.cloudfront.net/938208c7-113c-4b76-96bb-f65cefa93252/pkR5n4vC6/trec.pdf"
     }
 };

@@ -9,8 +9,8 @@
 // ============================================
 
 // R2 Storage Configuration
-const R2_BASE_URL = "https://pub-0a14d2bf83cc482ab589da588a45c6b0.r2.dev";
-const FOLDER_NAME = "3711Lexington";
+const R2_BASE_URL = "https://pub-322e1afeb2fc45c38f52428d0a3aca9b.r2.dev";
+const FOLDER_NAME = "randall_r/Lexington3711";
 
 // Helper function to build full image URLs
 const getUrl = (filename) => `${R2_BASE_URL}/${FOLDER_NAME}/${filename}`;
@@ -73,22 +73,22 @@ export const agentInfo = ralphAgent;
 
 export const images = {
     // Hero Section Images
-    cover: getUrl("lexington-hero.webp"),
-    hero: getUrl("lexington-exterior.webp"),
+    cover: getUrl("Lexington3711-1.webp"),
+    hero: getUrl("Lexington3711-2.webp"),
 
     // Lifestyle/Hallway Section
-    lifestyle: getUrl("lexington-lifestyle.webp"),
+    lifestyle: getUrl("Lexington3711-3.webp"),
 
     // Detail Section Images (4 panels)
-    detailsArchitecture: getUrl("lexington-architecture.webp"),
-    detailsPrimary: getUrl("lexington-primary.webp"),
-    detailsCulinary: getUrl("lexington-kitchen.webp"),
-    detailsOutdoor: getUrl("lexington-pool.webp"),
+    detailsArchitecture: getUrl("Lexington3711-4.webp"),
+    detailsPrimary: getUrl("Lexington3711-5.webp"),
+    detailsCulinary: getUrl("Lexington3711-6.webp"),
+    detailsOutdoor: getUrl("Lexington3711-7.webp"),
 
-    // Floor Plans
-    floorPlanBackground: getUrl("lexington-fp-bg.webp"),
-    floorPlan1: getUrl("lexington-fp1.png"),
-    floorPlan2: getUrl("lexington-fp2.png")
+    // Floor Plans (Assuming these might have different names or be numbered)
+    floorPlanBackground: getUrl("Lexington3711-8.webp"),
+    floorPlan1: getUrl("Lexington3711-fp1.png"),
+    floorPlan2: getUrl("Lexington3711-fp2.png")
 };
 
 // ============================================
@@ -99,7 +99,7 @@ export const galleryConfig = {
     useBulk: true,
     bulkSettings: {
         baseUrl: `${R2_BASE_URL}/${FOLDER_NAME}`,
-        filePrefix: "lexington-",
+        filePrefix: "Lexington3711-",
         extension: ".webp",
         count: 40,
         excludeIndices: []
@@ -107,7 +107,7 @@ export const galleryConfig = {
 
     // Manual Image List (used if useBulk is false)
     manualImages: [
-        "lexington-hero.webp",
+        "Lexington3711-1.webp",
     ].map(getUrl),
 
     homePageLimit: 20,
