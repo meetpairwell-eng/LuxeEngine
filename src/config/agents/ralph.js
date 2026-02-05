@@ -2,7 +2,7 @@
  * AGENT CONFIGURATION: RALPH RANDALL
  */
 
-const R2_BASE_URL = "https://pub-0a14d2bf83cc482ab589da588a45c6b0.r2.dev";
+const R2_BASE_URL = "https://pub-322e1afeb2fc45c38f52428d0a3aca9b.r2.dev";
 const getGlobalUrl = (path) => `${R2_BASE_URL}/${path}`;
 
 export const ralphAgent = {
@@ -11,7 +11,7 @@ export const ralphAgent = {
     phone: "214.533.8355",
     email: "rrandall@briggsfreeman.com",
     brokerage: "Briggs Freeman Sotheby's International Realty",
-    brokerageLogo: getGlobalUrl("logos/sothebys-logo.png"), // Placeholder path
+    brokerageLogo: getGlobalUrl("randall_r/main_agent/Logo_BFSIR.png"), // Placeholder path
     officePhone: "214-350-0400",
     address: "3131 Turtle Creek 5th Floor, Dallas, Texas 75219",
     headshot: getGlobalUrl("agents/ralph-randall.png"), // Placeholder path

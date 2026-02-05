@@ -80,13 +80,13 @@ export const images = {
     lifestyle: getUrl("Lexington3711-3.webp"),
 
     // Detail Section Images (4 panels)
-    detailsArchitecture: getUrl("Lexington3711-4.webp"),
-    detailsPrimary: getUrl("Lexington3711-5.webp"),
-    detailsCulinary: getUrl("Lexington3711-6.webp"),
-    detailsOutdoor: getUrl("Lexington3711-7.webp"),
+    panel1: getUrl("Lexington3711-7.webp"), // Exquisite Living
+    panel2: getUrl("Lexington3711-4.webp"), // Masterful Detail
+    panel3: getUrl("Lexington3711-22.webp"),  // Serene Grounds
+    panel4: getUrl("Lexington3711-10.webp"),  // Cole Smith Legacy
 
     // Floor Plans (Assuming these might have different names or be numbered)
-    floorPlanBackground: getUrl("Lexington3711-8.webp"),
+    floorPlanBackground: getUrl("Lexington3711-9.webp"),
     floorPlan1: getUrl("Lexington3711-fp1.png"),
     floorPlan2: getUrl("Lexington3711-fp2.png")
 };
@@ -120,20 +120,8 @@ export const galleryConfig = {
 
 export const detailSections = [
     {
-        title: "Architectural Legacy",
-        imageKey: "detailsArchitecture",
-        features: [
-            "Designed by master Classicist Cole Smith (Smith-Ekblad & Assoc.)",
-            "Consultation by award-winning Sherry Hayslip Interiors",
-            "Commercial-grade structure with master-crafted carpentry",
-            "Two-story Great Room with brilliantly engineered acoustics",
-            "Brilliantly engineered acoustics and hand-carved millwork",
-            "Four-floor commercial elevator serving all levels"
-        ]
-    },
-    {
-        title: "The Primary Sanctuary",
-        imageKey: "detailsPrimary",
+        title: "Exquisite Living",
+        imageKey: "panel1",
         features: [
             "Primary wing featuring bed chambers and private living area",
             "Gentleman's study opening to screened balcony with park views",
@@ -144,8 +132,8 @@ export const detailSections = [
         ]
     },
     {
-        title: "Culinary & Entertaining",
-        imageKey: "detailsCulinary",
+        title: "Masterful Detail",
+        imageKey: "panel2",
         features: [
             "Professional food preparation kitchen and Butler's pantry",
             "Breakfast room and Conservatory with views of Hackberry Creek",
@@ -156,8 +144,8 @@ export const detailSections = [
         ]
     },
     {
-        title: "Recreation & Grounds",
-        imageKey: "detailsOutdoor",
+        title: "Serene Grounds",
+        imageKey: "panel3",
         features: [
             "Sited on a rare 1.057-acre corner lot along Hackberry Creek",
             "Near Olympic-sized Natatorium with dedicated cabana area",
@@ -165,6 +153,18 @@ export const detailSections = [
             "Oversized pool and spa perfect for swim or recreation",
             "6-car garage with porte-cochère and street-to-alley access",
             "Lushly landscaped grounds bordering Highland Park trails"
+        ]
+    },
+    {
+        title: "Cole Smith Legacy",
+        imageKey: "panel4",
+        features: [
+            "Designed by master Classicist Cole Smith (Smith-Ekblad & Assoc.)",
+            "Consultation by award-winning Sherry Hayslip Interiors",
+            "Commercial-grade structure with master-crafted carpentry",
+            "Two-story Great Room with brilliantly engineered acoustics",
+            "Brilliantly engineered acoustics and hand-carved millwork",
+            "Four-floor commercial elevator serving all levels"
         ]
     }
 ];
