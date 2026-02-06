@@ -1,6 +1,8 @@
 import React from 'react';
 import { images, propertyInfo, activeId } from '../config/propertyConfig';
 import FadeIn from './FadeIn';
+import OptimizedImage from './OptimizedImage';
+import { getOptimizedImageUrl, PROFILES } from '../utils/imageOptimizer';
 
 const Hero = () => {
     const isBrickellia = activeId === 'brickellia5168';
@@ -32,10 +34,11 @@ const Hero = () => {
             )}
 
             {/* Mobile Image Background */}
-            <img
+            <OptimizedImage
                 src={images.cover}
                 alt={propertyInfo.address}
                 className="hero-mobile-bg"
+                isHero={true}
             />
 
             {/* Clean, Modern Overlay (Subtle) - Removed for Brickellia */}
@@ -108,7 +111,7 @@ const Hero = () => {
                     right: 0;
                     bottom: 0;
                     background-color: #f8f8f8;
-                    background-image: url('${images.cover}');
+                    background-image: url('${getOptimizedImageUrl(images.cover, PROFILES.HERO)}');
                     background-size: cover;
                     background-position: center;
                     z-index: 0;

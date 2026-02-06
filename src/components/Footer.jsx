@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { agentInfo, propertyInfo } from '../config/propertyConfig';
+import OptimizedImage from './OptimizedImage';
 import './Footer.css';
 
 const Footer = () => {
@@ -16,7 +17,7 @@ const Footer = () => {
                     <div className="footer-compass-logo">
                         <a href="https://www.compass.com" target="_blank" rel="noopener noreferrer" className="compass-link">
                             {agentInfo.brokerageLogo ? (
-                                <img src={agentInfo.brokerageLogo} alt={agentInfo.brokerage} className="broker-logo-img" />
+                                <OptimizedImage src={agentInfo.brokerageLogo} alt={agentInfo.brokerage} className="broker-logo-img" width={300} />
                             ) : (
                                 <h1>{agentInfo.brokerage === 'Compass' || agentInfo.brokerage === 'Compass Real Estate' ? 'COMPASS' : agentInfo.brokerage || 'COMPASS'}</h1>
                             )}
@@ -79,9 +80,10 @@ const Footer = () => {
 
                     <div className="footer-bottom-logos">
                         <div className="realtor-logos">
-                            <img
+                            <OptimizedImage
                                 src="https://pub-0a14d2bf83cc482ab589da588a45c6b0.r2.dev/main-page/realtor-eho-logo.webp"
                                 alt="Realtor and Equal Housing Opportunity"
+                                width={300}
                             />
                         </div>
                     </div>

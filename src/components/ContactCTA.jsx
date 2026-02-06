@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { agentInfo, images, propertyInfo } from '../config/propertyConfig';
+import OptimizedImage from './OptimizedImage';
 
 const ContactCTA = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -58,7 +59,12 @@ const ContactCTA = () => {
                     {/* Left Side: Agent Info */}
                     <div className="cta-left">
                         <div className="agent-image-wrapper">
-                            <img src={agentInfo.headshot || images.headshot || agentInfo.brokerageLogo} alt={agentInfo.name} className="agent-headshot" />
+                            <OptimizedImage
+                                src={agentInfo.headshot || images.headshot || agentInfo.brokerageLogo}
+                                alt={agentInfo.name}
+                                className="agent-headshot"
+                                width={500}
+                            />
                         </div>
                         <div className="agent-details">
                             <span className="agent-label">Presented By</span>

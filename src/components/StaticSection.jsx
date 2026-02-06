@@ -1,4 +1,5 @@
 import React from 'react';
+import { getOptimizedImageUrl, PROFILES } from '../utils/imageOptimizer';
 
 const StaticSection = ({ image, title, subtitle }) => {
   return (
@@ -15,7 +16,7 @@ const StaticSection = ({ image, title, subtitle }) => {
           top: 0;
           height: 100vh;
           width: 100%;
-          background-image: url('${image}');
+          background-image: url('${getOptimizedImageUrl(image, PROFILES.HERO)}');
           background-size: cover;
           background-position: center;
           background-attachment: fixed;

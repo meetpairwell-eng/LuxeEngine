@@ -1,10 +1,11 @@
 import React from 'react';
+import { getOptimizedImageUrl, PROFILES } from '../utils/imageOptimizer';
 
 const FullScreenImage = ({ image, children, sticky = false, stickyContent = null }) => {
   return (
     <section className={`fullscreen-image-section ${sticky ? 'sticky-mode' : ''}`}>
       {/* Sticky Background Image */}
-      <div className="fullscreen-bg" style={{ backgroundImage: `url('${image}')` }}></div>
+      <div className="fullscreen-bg" style={{ backgroundImage: `url('${getOptimizedImageUrl(image, PROFILES.HERO)}')` }}></div>
       <div className="fullscreen-overlay"></div>
 
       {/* Sticky Content Layer (e.g. Scroll Hints) */}

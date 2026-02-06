@@ -1,6 +1,8 @@
 import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { galleryConfig_LEGACY as galleryConfig } from '../config/propertyConfig';
+import OptimizedImage from './OptimizedImage';
+import { PROFILES } from '../utils/imageOptimizer';
 
 // Determine which images to show based on config (Static Source)
 let sourceImages = [];
@@ -83,7 +85,12 @@ const Gallery = ({ limit = null, randomize = false }) => {
                 className={className}
                 onClick={() => openLightbox(index)}
               >
-                <img src={img} alt={`Property view`} loading="lazy" />
+                <OptimizedImage
+                  src={img}
+                  alt={`Property view`}
+                  loading="lazy"
+                  width={PROFILES.THUMBNAIL.width}
+                />
                 <div className="hover-overlay"><span className="plus-icon">+</span></div>
               </div>
             );
@@ -107,9 +114,10 @@ const Gallery = ({ limit = null, randomize = false }) => {
           <button className="lb-nav lb-prev" onClick={prevImage}>&#10094;</button>
 
           <div className="lb-content" onClick={(e) => e.stopPropagation()}>
-            <img
+            <OptimizedImage
               src={displayImages[lightboxIndex]}
               alt={`Full screen view`}
+              isHero={true}
             />
           </div>
 

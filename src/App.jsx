@@ -5,6 +5,7 @@ import FullGallery from './pages/FullGallery';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import SEO from './components/SEO';
 import { propertyInfo, theme, layout, activeId, galleryConfig_LEGACY as galleryConfig } from './config/propertyConfig';
+import { getOptimizedImageUrl, PROFILES } from './utils/imageOptimizer';
 
 function App() {
   const [isOpen, setIsOpen] = useState(layout?.showWelcomeScreen === false || window.location.hash.length > 0); // Open immediately if disabled OR if linking to a specific section
@@ -147,7 +148,7 @@ function App() {
           left: 0;
           width: 100%;
           height: 100%;
-          background-image: url('${galleryConfig.heroImage}');
+          background-image: url('${getOptimizedImageUrl(galleryConfig.heroImage, PROFILES.HERO)}');
           background-size: cover;
           background-position: center;
           filter: blur(15px);

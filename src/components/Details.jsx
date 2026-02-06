@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { images, detailSections } from '../config/propertyConfig';
+import OptimizedImage from './OptimizedImage';
 
 const Details = () => {
   const containerRef = useRef(null);
@@ -83,7 +84,7 @@ const Details = () => {
 
                 {/* Image Side */}
                 <div className={`details-image-side ${isActive ? 'image-reveal' : ''}`}>
-                  <img src={images[section.imageKey]} alt={section.title} />
+                  <OptimizedImage src={images[section.imageKey]} alt={section.title} />
                 </div>
               </div>
             </div>

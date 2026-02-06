@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { galleryConfig_LEGACY as galleryConfig } from '../config/propertyConfig';
+import OptimizedImage from './OptimizedImage';
+import { PROFILES } from '../utils/imageOptimizer';
 
 const FloorPlans = () => {
     const [showPlans, setShowPlans] = useState(false);
@@ -13,7 +15,7 @@ const FloorPlans = () => {
                 <div className="fp-background-container">
                     {/* The rotating bird's eye view background */}
                     <div className="fp-background">
-                        <img src={galleryConfig.floorPlanConfig.background} alt="Property Layout" />
+                        <OptimizedImage src={galleryConfig.floorPlanConfig.background} alt="Property Layout" isHero={true} />
                     </div>
 
                     {/* Overlay - Click to close if open */}
@@ -47,9 +49,9 @@ const FloorPlans = () => {
 
                             return (
                                 <div className="fp-images-container">
-                                    <img src={src1} alt="Floor Plan 1" className="fp-image" />
+                                    <OptimizedImage src={src1} alt="Floor Plan 1" className="fp-image" width={2000} />
                                     {src2 && src1 !== src2 && (
-                                        <img src={src2} alt="Floor Plan 2" className="fp-image" />
+                                        <OptimizedImage src={src2} alt="Floor Plan 2" className="fp-image" width={2000} />
                                     )}
                                 </div>
                             );
