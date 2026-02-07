@@ -4,8 +4,13 @@ import Home from './pages/Home';
 import FullGallery from './pages/FullGallery';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import SEO from './components/SEO';
-import { propertyInfo, theme, layout, activeId, galleryConfig_LEGACY as galleryConfig } from './config/propertyConfig';
+import { propertyInfo, theme, layout, activeId, galleryConfig_LEGACY as galleryConfig, imageOptimization } from './config/propertyConfig';
 import { getOptimizedImageUrl, PROFILES } from './utils/imageOptimizer';
+
+// Set global config for image optimizer to avoid circular dependencies
+if (typeof window !== 'undefined') {
+  window.__IMAGE_OPTIMIZATION_ENABLED__ = imageOptimization?.enabled !== false;
+}
 
 function App() {
   const [isOpen, setIsOpen] = useState(layout?.showWelcomeScreen === false || window.location.hash.length > 0); // Open immediately if disabled OR if linking to a specific section

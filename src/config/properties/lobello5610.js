@@ -123,6 +123,10 @@ export const galleryConfig = {
     randomize: true     // Randomize images on home page
 };
 
+export const imageOptimization = {
+    enabled: false // Disabled for Lobello as requested to not affect other sites
+};
+
 // ============================================
 // PROPERTY DETAILS SECTIONS
 // ============================================

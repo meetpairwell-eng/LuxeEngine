@@ -114,6 +114,10 @@ export const galleryConfig = {
     randomize: true
 };
 
+export const imageOptimization = {
+    enabled: true // Enabled for Lexington (Cloudflare Image Resizing)
+};
+
 // ============================================
 // PROPERTY DETAILS SECTIONS
 // ============================================

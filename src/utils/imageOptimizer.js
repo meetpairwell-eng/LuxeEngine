@@ -20,6 +20,15 @@ const CLOUDFLARE_PREFIX = '/cdn-cgi/image/';
 export const getOptimizedImageUrl = (url, { width, quality = 80, format = 'auto' } = {}) => {
     if (!url) return '';
 
+    // Only apply transformation in production
+    // This prevents broken images in local development where /cdn-cgi/image/ doesn't exist
+    if (import.meta.env.DEV) return url;
+
+    // Check if optimization is explicitly disabled for this property
+    if (typeof window !== 'undefined' && window.__IMAGE_OPTIMIZATION_ENABLED__ === false) {
+        return url;
+    }
+
     // Only apply to external URLs (absolute URLs)
     // If it's already a Cloudflare-prefixed URL, don't double-prefix it
     if (!url.startsWith('http')) return url;

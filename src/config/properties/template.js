@@ -121,6 +121,10 @@ export const galleryConfig = {
     randomize: false
 };
 
+export const imageOptimization = {
+    enabled: false // Disabled by default for new listings
+};
+
 // Legacy Export (DO NOT REMOVE)
 export const galleryConfig_LEGACY = {
     coverImage: images.cover,
