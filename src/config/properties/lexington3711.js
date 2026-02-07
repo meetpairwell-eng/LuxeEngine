@@ -115,7 +115,7 @@ export const galleryConfig = {
 };
 
 export const imageOptimization = {
-    enabled: true // Enabled for Lexington (Cloudflare Image Resizing)
+    enabled: false // Disabled for all websites per user request
 };
 
 // ============================================
