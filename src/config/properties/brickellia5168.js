@@ -42,8 +42,8 @@ export const propertyInfo = {
 
     // Map Coordinates
     map: {
-        lat: 32.8242,
-        lng: -96.8285
+        lat: 32.8269,
+        lng: -96.8179
     },
 
     // Additional Features (for stats display)

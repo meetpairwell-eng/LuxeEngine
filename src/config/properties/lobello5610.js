@@ -59,8 +59,8 @@ export const propertyInfo = {
 
     // Map Configuration
     map: {
-        lat: 32.8943,
-        lng: -96.8122
+        lat: 32.8919,
+        lng: -96.8103
     }
 };
 
