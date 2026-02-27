@@ -13,7 +13,7 @@ export const coleAgent = {
     brokerageLogo: getGlobalUrl("main-page/compass-logo.webp"),
     officePhone: "(214) 814-8100",
     address: "5960 Berkshire Ln Ste 700, Dallas TX 75225",
-    headshot: getGlobalUrl("agents/cole-swearingen/profile/headshot.webp"),
+    headshot: getGlobalUrl("cole-swearingen-headshot.webp"),
     socialMedia: {
         facebook: "https://www.facebook.com/cole.swearingen.35/",
         instagram: "https://www.instagram.com/coleswear/?hl=en"
