@@ -23,11 +23,11 @@ export const propertyInfo = {
     address: "6444 Mimosa Ln ",
     city: "Dallas",
     state: "TX",
-    zip: "75230",
+    zip: "",
     price: "$3495000",
     specs: {
         sqft: "5775",
-        beds: 5,
+        beds: 0,
         baths: 4.1,
         garage: "",
     },
