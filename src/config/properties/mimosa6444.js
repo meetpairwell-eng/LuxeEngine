@@ -1,5 +1,5 @@
 /**
- * PROPERTY: 6444 Mimosa Ln , Dallas TX
+ * PROPERTY: 6444 Mimosa Lane, Dallas TX
  * Created via CS Upload Dashboard on 2026-03-03
  */
 
@@ -20,14 +20,14 @@ const getGlobalUrl = (path) => `${R2_BASE_URL}/${path}`;
 // ============================================
 
 export const propertyInfo = {
-    address: "6444 Mimosa Ln ",
+    address: "6444 Mimosa Lane",
     city: "Dallas",
     state: "TX",
     zip: "",
     price: "$3495000",
     specs: {
         sqft: "5775",
-        beds: 0,
+        beds: 5,
         baths: 4.1,
         garage: "",
     },
@@ -36,7 +36,7 @@ export const propertyInfo = {
         lng: -96.7970
     },
     features: [],
-    tagline: "6444 Mimosa Ln ",
+    tagline: "6444 Mimosa Lane",
     description: "",
     metaDescription: ""
 };
