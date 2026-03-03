@@ -128,8 +128,7 @@ const Map = () => {
         } else {
             // Try multiple sources for API key in order of preference:
             const apiKey = propertyInfo.googleMapsApiKey
-                || import.meta.env.VITE_GOOGLE_MAPS_API_KEY
-                || 'AIzaSyDFBUJSmoJccQw1ZMDUwiBAibiXgwkhxlo';
+                || import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
             if (apiKey) {
                 const existingScript = document.getElementById("googleMapsScript");
