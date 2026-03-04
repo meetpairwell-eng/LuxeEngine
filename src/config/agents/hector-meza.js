@@ -8,7 +8,7 @@ const getGlobalUrl = (path) => `${R2_BASE_URL}/${path}`;
 
 export const hectorMezaAgent = {
     name: "Hector Meza",
-    title: "Real Estate Agent",
+    title: "Global Real Estate Advisor",
     phone: "214.686.5641",
     email: "hmeza@briggsfreeman.com",
     brokerage: "Briggs Freeman Sothebys INT",
