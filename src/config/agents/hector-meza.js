@@ -15,14 +15,14 @@ export const hectorMezaAgent = {
     brokerageLogo: "", // Upload brokerage logo to R2 and update this path
     officePhone: "",
     address: "3131 Turtle Creek Blvd 5th floor Dallas TX 75019",
-    headshot: getGlobalUrl("agents/hector-meza/profile/headshot.webp"), // Upload headshot via dashboard then this will resolve
+    headshot: getGlobalUrl("agents/hector-meza/profile/headshot.webp"),
     socialMedia: {
         facebook: "https://www.facebook.com/hectormeza7/",
         instagram: "https://www.instagram.com/hectormeza.z/?hl=en"
     },
     docs: {
         consumerProtection: "https://www.trec.texas.gov/sites/default/files/pdf-forms/CN%201-5_0.pdf",
-        iabs: "", // Add IABS URL
-        disclaimer: "" // Add disclaimer URL
+        iabs: "",
+        disclaimer: ""
     }
 };
