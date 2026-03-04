@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { agentInfo, propertyInfo } from '../config/propertyConfig';
+import { agentInfo } from '../config/propertyConfig';
 import OptimizedImage from './OptimizedImage';
 import './Footer.css';
 
@@ -15,7 +15,7 @@ const Footer = () => {
             <div className="container">
                 <div className="footer-top">
                     <div className="footer-compass-logo">
-                        <a href="https://www.compass.com" target="_blank" rel="noopener noreferrer" className="compass-link">
+                        <a href={agentInfo.website || '#'} target="_blank" rel="noopener noreferrer" className="compass-link">
                             {agentInfo.brokerageLogo ? (
                                 <OptimizedImage src={agentInfo.brokerageLogo} alt={agentInfo.brokerage} className="broker-logo-img" width={300} />
                             ) : (
@@ -47,7 +47,7 @@ const Footer = () => {
                                     tel: {agentInfo.officePhone}
                                 </a>
                                 <p className="footer-info-text">
-                                    {propertyInfo.address}, {propertyInfo.city} {propertyInfo.state} {propertyInfo.zip}
+                                    {agentInfo.address}
                                 </p>
                             </div>
 
@@ -74,7 +74,10 @@ const Footer = () => {
 
                     <div className="footer-disclaimer">
                         <p>
-                            {agentInfo.name} is a real estate agent affiliated with Compass. Compass is a licensed real estate broker and abides by all applicable equal housing opportunity laws. All material presented herein is intended for informational purposes only. Information is compiled from sources deemed reliable but is subject to errors, omissions, changes in price, condition, sale, or withdrawal without notice. No statement is made as to accuracy of any description. All measurements and square footages are approximate. This is not intended to solicit property already listed. Nothing herein shall be construed as legal, accounting or other professional advice outside the realm of real estate brokerage.
+                            {agentInfo.disclaimer
+                                ? `${agentInfo.name} ${agentInfo.disclaimer}`
+                                : `${agentInfo.name} is a real estate agent affiliated with ${agentInfo.brokerage}. ${agentInfo.brokerage} is a licensed real estate broker and abides by all applicable equal housing opportunity laws. All material presented herein is intended for informational purposes only.`
+                            }
                         </p>
                     </div>
 
